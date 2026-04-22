@@ -51,8 +51,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'infinityhome_db',
-        'USER': 'root',
-        'PASSWORD': '1234',
+        'USER': 'infinity',
+        'PASSWORD': 'infinity123',
         'HOST': 'localhost',
         'PORT': '3306',
     }
