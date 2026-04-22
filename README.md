@@ -18,9 +18,9 @@ FLUSH PRIVILEGES;
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'infinity_db',
+        'NAME': 'infinityhome_db',
         'USER': 'infinity',
-        'PASSWORD': 'VotreMotDePasse',
+        'PASSWORD': ''infinity123',
         'HOST': 'localhost',
         'PORT': '3306',
     }
