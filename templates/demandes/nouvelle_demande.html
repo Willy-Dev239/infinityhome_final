@@ -1,0 +1,63 @@
+{% extends 'base/base.html' %}
+{% block title %}Nouvelle demande | Infinity Home{% endblock %}
+{% block page_title %}➕ Nouvelle demande{% endblock %}
+{% block sb_new %}on{% endblock %}
+{% block extra_css %}
+<style>
+.urgence-btns{display:flex;gap:.7rem}
+.urg-btn{flex:1;border:2px solid var(--bd);border-radius:11px;padding:.85rem;text-align:center;cursor:pointer;transition:all .2s;font-size:.83rem;font-weight:600;background:#fff}
+.urg-btn:hover{border-color:var(--pr)}
+.urg-btn.u-ok.sel{border-color:#16a34a;background:#f0fdf4;color:#16a34a}
+.urg-btn.u-wa.sel{border-color:#d97706;background:#fffbeb;color:#d97706}
+.urg-btn.u-re.sel{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+</style>
+{% endblock %}
+{% block content %}
+<div style="max-width:700px">
+  <div class="card">
+    <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;padding-bottom:1.2rem;border-bottom:1px solid var(--bd)">
+      <div style="width:44px;height:44px;border-radius:13px;background:var(--prl);display:flex;align-items:center;justify-content:center;font-size:1.3rem"><i class="fas fa-tools" style="color:var(--pr)"></i></div>
+      <div><div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:var(--dk)">Nouvelle demande d'intervention</div><div style="font-size:.8rem;color:var(--mu)">Remplissez le formulaire — nous trouvons le bon technicien</div></div>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="fg-row">
+        <div class="fg">
+          <label>Type de travaux *</label>
+          <select name="type_travaux" required>
+            <option value="">Choisir...</option>
+            <option value="electricite">⚡ Électricité</option>
+            <option value="plomberie">🔧 Plomberie</option>
+            <option value="construction">🏗️ Construction</option>
+            <option value="soudure">🔩 Soudure</option>
+            <option value="peinture">🎨 Peinture</option>
+            <option value="menuiserie">🪚 Menuiserie</option>
+            <option value="autre">🔨 Autre</option>
+          </select>
+        </div>
+        <div class="fg"><label>Localité *</label><input type="text" name="localite" placeholder="Ex: Rohero, Bujumbura" required></div>
+      </div>
+      <div class="fg"><label>Titre de la demande *</label><input type="text" name="titre" placeholder="Ex: Réparation installation électrique" required></div>
+      <div class="fg"><label>Description détaillée *</label><textarea name="description" rows="5" placeholder="Décrivez le problème en détail..." required></textarea></div>
+      <div class="fg"><label>Adresse complète *</label><textarea name="adresse" rows="2" placeholder="Quartier, rue, repère..." required></textarea></div>
+      <div class="fg">
+        <label>Niveau d'urgence</label>
+        <div class="urgence-btns">
+          <div class="urg-btn u-ok sel" onclick="selUrg('normale',this)">🟢 Normale</div>
+          <div class="urg-btn u-wa" onclick="selUrg('urgence',this)">🟡 Urgence</div>
+          <div class="urg-btn u-re" onclick="selUrg('critique',this)">🔴 Critique</div>
+        </div>
+        <input type="hidden" name="urgence" id="urg-v" value="normale">
+      </div>
+      <div class="fg"><label>Photo (optionnel)</label><input type="file" name="photo" accept="image/*" style="padding:.55rem"><div style="font-size:.73rem;color:var(--mu);margin-top:.3rem"><i class="fas fa-info-circle"></i> Aidez le technicien à bien comprendre le problème.</div></div>
+      <div style="display:flex;gap:.8rem;margin-top:1.2rem">
+        <a href="{% url 'demandes:mes_demandes' %}" class="btn btn-light" style="flex:1;justify-content:center"><i class="fas fa-arrow-left"></i> Annuler</a>
+        <button type="submit" class="btn btn-primary" style="flex:2;justify-content:center"><i class="fas fa-paper-plane"></i> Envoyer la demande</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+function selUrg(v,el){document.querySelectorAll('.urg-btn').forEach(b=>b.classList.remove('sel'));el.classList.add('sel');document.getElementById('urg-v').value=v;}
+</script>
+{% endblock %}

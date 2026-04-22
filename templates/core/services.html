@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+{% block title %}Nos Services — Infinity Home{% endblock %}
+{% block nav_services %}active{% endblock %}
+{% block sb_services %}active{% endblock %}
+{% block page_title %}🔧 Nos Services{% endblock %}
+{% block extra_css %}
+<style>
+.services-page <div style="{% if not user.is_authenticated %}max-width:1100px;margin:3rem auto;padding:0 1.5rem;{% endif %}">
+.srv-card{background:white;border-radius:20px;padding:2rem;border:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.06);transition:all .3s;cursor:pointer;position:relative;overflow:hidden;}
+.srv-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.12);}
+.srv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+.srv-card:nth-child(1)::before{background:linear-gradient(90deg,#f59e0b,#ef4444);}
+.srv-card:nth-child(2)::before{background:linear-gradient(90deg,#3b82f6,#8b5cf6);}
+.srv-card:nth-child(3)::before{background:linear-gradient(90deg,#10b981,#14b8a6);}
+.srv-card:nth-child(4)::before{background:linear-gradient(90deg,#f97316,#ef4444);}
+.srv-card:nth-child(5)::before{background:linear-gradient(90deg,#ec4899,#8b5cf6);}
+.srv-card:nth-child(6)::before{background:linear-gradient(90deg,#6366f1,#3b82f6);}
+.srv-icon{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1.2rem;}
+</style>
+{% endblock %}
+{% block visitor_content %}
+<div class="services-page">
+{% if not user.is_authenticated %}<div style="text-align:center;margin-bottom:3rem;"><h1 style="font-family:'Clash Display',sans-serif;font-size:2.2rem;font-weight:700;">Nos Services</h1><p style="color:var(--muted);margin-top:.7rem;">Des professionnels qualifiés pour tous vos besoins</p></div>{% endif %}
+<div style="display:grid;grid-template-columns:repeat({% if user.is_authenticated %}3{% else %}3{% endif %},1fr);gap:1.4rem;">
+  {% for code,label in specialites %}
+  <div class="srv-card">
+    <div class="srv-icon" style="background:{% if code == 'electricien' %}#fffbeb{% elif code == 'plombier' %}#eff6ff{% elif code == 'ingenieur' %}#f0fdf4{% elif code == 'soudeur' %}#fef2f2{% elif code == 'peintre' %}#fdf4ff{% else %}#ecfeff{% endif %};">
+      {% if code == 'electricien' %}⚡{% elif code == 'plombier' %}🔧{% elif code == 'ingenieur' %}🏗️{% elif code == 'soudeur' %}🔩{% elif code == 'peintre' %}🎨{% else %}🪚{% endif %}
+    </div>
+    <h3 style="font-family:'Clash Display',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.5rem;">{{ label }}</h3>
+    <p style="color:var(--muted);font-size:.85rem;line-height:1.6;margin-bottom:1.2rem;">{% if code == 'electricien' %}Installation, réparation électrique, mise aux normes.{% elif code == 'plombier' %}Plomberie, sanitaires, canalisations.{% elif code == 'ingenieur' %}Construction, rénovation, supervision.{% elif code == 'soudeur' %}Soudure, ferronnerie, métallerie.{% elif code == 'peintre' %}Peinture intérieure, extérieure, revêtements.{% else %}Menuiserie, parquet, charpente bois.{% endif %}</p>
+    <a href="{% url 'demandes:nouvelle_demande' %}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Faire une demande</a>
+  </div>
+  {% endfor %}
+</div>
+</div>
+{% endblock %}

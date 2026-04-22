@@ -1,0 +1,169 @@
+{% extends 'dashboard/base_dashboard.html' %}
+{% block title %}Techniciens | Admin{% endblock %}
+{% block nav_techniciens %}active{% endblock %}
+{% block topbar_title %}Techniciens{% endblock %}
+
+{% block content %}
+<div class="page-head">
+  <div><h1>Techniciens</h1><p style="color:var(--muted);font-size:.88rem;">{{ techniciens.count }} technicien{{ techniciens.count|pluralize }}</p></div>
+  <button class="btn btn-primary" onclick="openModal()"><i class="fas fa-plus"></i> Ajouter</button>
+</div>
+
+<div class="card">
+  <table>
+    <thead><tr><th>Technicien</th><th>Specialite</th><th>Telephone</th><th>Localite</th><th>Experience</th><th>Disponibilite</th><th>Actions</th></tr></thead>
+    <tbody>
+    {% for t in techniciens %}
+    <tr>
+      <td><div style="font-weight:600;">{{ t.nom_complet }}</div><div style="color:var(--muted);font-size:.75rem;">{{ t.email }}</div></td>
+      <td><span class="badge badge-blue">{{ t.get_specialite_display }}</span></td>
+      <td style="color:var(--muted2);">{{ t.telephone }}</td>
+      <td style="color:var(--muted2);">{{ t.localite }}</td>
+      <td style="color:var(--muted2);">{{ t.experience }} ans</td>
+      <td><span class="badge {% if t.disponibilite == 'disponible' %}badge-green{% elif t.disponibilite == 'occupe' %}badge-yellow{% else %}badge-gray{% endif %}">{{ t.get_disponibilite_display }}</span></td>
+      <td>
+        <button class="btn btn-ghost btn-sm" onclick="openModal({{ t.pk }}, '{{ t.prenom }}', '{{ t.nom }}', '{{ t.specialite }}', '{{ t.disponibilite }}', '{{ t.telephone }}', '{{ t.email }}', '{{ t.localite }}', {{ t.experience }}, {{ t.actif|yesno:'true,false' }})">
+          <i class="fas fa-edit"></i>
+        </button>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="7" style="text-align:center;color:var(--muted);padding:2.5rem;">Aucun technicien. <a onclick="openModal()" style="color:var(--primary);cursor:pointer;">Ajouter le premier</a></td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- ══ MODAL ══ -->
+<div id="tech-modal" style="display:none;position:fixed;inset:0;z-index:1000;align-items:center;justify-content:center;">
+  <!-- Overlay -->
+  <div onclick="closeModal()" style="position:absolute;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(3px);"></div>
+  <!-- Box -->
+  <div style="position:relative;background:#fff;border-radius:18px;width:100%;max-width:680px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,.2);margin:1rem;">
+    <!-- Header -->
+    <div style="padding:1.4rem 1.6rem;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#fff;z-index:1;border-radius:18px 18px 0 0;">
+      <h2 id="modal-title" style="font-size:1.1rem;font-weight:700;margin:0;">Nouveau technicien</h2>
+      <button onclick="closeModal()" style="background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--muted);line-height:1;">&times;</button>
+    </div>
+    <!-- Form -->
+    <form id="tech-form" method="post" enctype="multipart/form-data" style="padding:1.6rem;">
+      {% csrf_token %}
+      <input type="hidden" name="_tech_id" id="f-id">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
+        <div>
+          <label class="form-label">Prénom *</label>
+          <input type="text" name="prenom" id="f-prenom" class="form-ctrl" required>
+        </div>
+        <div>
+          <label class="form-label">Nom *</label>
+          <input type="text" name="nom" id="f-nom" class="form-ctrl" required>
+        </div>
+        <div>
+          <label class="form-label">Spécialité *</label>
+          <select name="specialite" id="f-specialite" class="form-ctrl" required>
+            {% for val,label in specialites %}
+            <option value="{{ val }}">{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div>
+          <label class="form-label">Disponibilité</label>
+          <select name="disponibilite" id="f-disponibilite" class="form-ctrl">
+            {% for val,label in disponibilites %}
+            <option value="{{ val }}">{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div>
+          <label class="form-label">Téléphone *</label>
+          <input type="text" name="telephone" id="f-telephone" class="form-ctrl" required>
+        </div>
+        <div>
+          <label class="form-label">Email</label>
+          <input type="email" name="email" id="f-email" class="form-ctrl">
+        </div>
+        <div>
+          <label class="form-label">Localité *</label>
+          <input type="text" name="localite" id="f-localite" class="form-ctrl" required>
+        </div>
+        <div>
+          <label class="form-label">Années d'expérience</label>
+          <input type="number" name="experience" id="f-experience" class="form-ctrl" value="0" min="0">
+        </div>
+        <div style="grid-column:1/-1;">
+          <label class="form-label">Photo</label>
+          <input type="file" name="photo" class="form-ctrl" accept="image/*">
+        </div>
+        <div id="actif-wrap" style="grid-column:1/-1;display:none;align-items:center;gap:.7rem;">
+          <input type="checkbox" name="actif" id="f-actif" style="width:16px;height:16px;accent-color:var(--primary);">
+          <label for="f-actif" style="font-size:.88rem;cursor:pointer;">Technicien actif (visible sur le site)</label>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div style="display:flex;gap:.8rem;margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--bd);">
+        <button type="submit" class="btn btn-primary" style="flex:1;justify-content:center;">
+          <i class="fas fa-save"></i> <span id="btn-label">Ajouter</span>
+        </button>
+        <button type="button" onclick="closeModal()" class="btn btn-ghost">Annuler</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const modal = document.getElementById('tech-modal');
+
+function openModal(id, prenom, nom, specialite, disponibilite, telephone, email, localite, experience, actif) {
+  const isEdit = !!id;
+
+  // Titre + bouton
+  document.getElementById('modal-title').textContent = isEdit ? `Modifier "${prenom} ${nom}"` : 'Nouveau technicien';
+  document.getElementById('btn-label').textContent = isEdit ? 'Enregistrer' : 'Ajouter';
+
+  // Action du form
+  const form = document.getElementById('tech-form');
+  form.action = isEdit
+    ? `/dashboard/techniciens/${id}/edit/`
+    : `{% url 'dashboard:technicien_add' %}`;
+
+  // Remplir les champs
+  document.getElementById('f-id').value = id || '';
+  document.getElementById('f-prenom').value = prenom || '';
+  document.getElementById('f-nom').value = nom || '';
+  document.getElementById('f-telephone').value = telephone || '';
+  document.getElementById('f-email').value = email || '';
+  document.getElementById('f-localite').value = localite || '';
+  document.getElementById('f-experience').value = experience || 0;
+
+  setSelect('f-specialite', specialite);
+  setSelect('f-disponibilite', disponibilite);
+
+  // Checkbox actif — seulement en mode edit
+  const actifWrap = document.getElementById('actif-wrap');
+  actifWrap.style.display = isEdit ? 'flex' : 'none';
+  document.getElementById('f-actif').checked = actif === true;
+
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function setSelect(id, val) {
+  const sel = document.getElementById(id);
+  if (!val) return;
+  for (let opt of sel.options) {
+    opt.selected = opt.value === val;
+  }
+}
+
+// Fermer avec Escape
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+{% endblock %}

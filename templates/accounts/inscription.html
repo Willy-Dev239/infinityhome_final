@@ -1,0 +1,62 @@
+{% extends 'base/base.html' %}
+{% block title %}Inscription | Infinity Home{% endblock %}
+{% block extra_css %}
+<style>
+.reg-wrap{min-height:calc(100vh - 72px);display:flex;align-items:center;justify-content:center;padding:2rem 1rem;background:linear-gradient(135deg,#f8fafc,#eff6ff);}
+.reg-card{background:white;border-radius:24px;padding:2.5rem;max-width:680px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.1);border:1px solid var(--border);}
+.form-ctrl{width:100%;padding:.8rem 1rem;border:1.5px solid var(--border);border-radius:10px;font-family:inherit;font-size:.88rem;color:var(--text);outline:none;transition:all .2s;}
+.form-ctrl:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(26,86,219,.08);}
+.form-ctrl:hover:not(:focus){border-color:#cbd5e1;}
+select.form-ctrl{background:white;}
+textarea.form-ctrl{resize:vertical;}
+.field-error{color:#dc2626;font-size:.75rem;margin-top:.25rem;}
+.step-indicator{display:flex;justify-content:center;gap:.5rem;margin-bottom:2rem;}
+.step-dot{width:8px;height:8px;border-radius:50%;background:#e2e8f0;transition:all .3s;}
+.step-dot.active{background:var(--primary);transform:scale(1.3);}
+</style>
+{% endblock %}
+{% block visitor_content %}
+<div class="reg-wrap">
+<div class="reg-card">
+  <div style="text-align:center;margin-bottom:2rem;">
+    <div style="width:60px;height:60px;border-radius:18px;background:linear-gradient(135deg,var(--primary),#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;margin:0 auto .9rem;box-shadow:0 8px 24px rgba(26,86,219,.3);">
+      <i class="fas fa-user-plus"></i>
+    </div>
+    <h1 style="font-family:'Clash Display',sans-serif;font-size:1.7rem;font-weight:700;color:var(--dark);">Créer mon compte</h1>
+    <p style="color:var(--muted);font-size:.9rem;margin-top:.4rem;">Déjà inscrit ? <a href="{% url 'accounts:connexion' %}" style="color:var(--primary);font-weight:600;">Se connecter</a></p>
+  </div>
+  <form method="post" id="reg-form">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next|default:'/' }}">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0;">
+      {% for field in form %}
+      <div style="{% if field.name in 'username,email,password1,password2,adresse' %}grid-column:1/-1;{% endif %}margin-bottom:1rem;">
+        <label style="display:block;font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:.4rem;">
+          {{ field.label }}{% if field.field.required %} <span style="color:#ef4444;">*</span>{% endif %}
+        </label>
+        {% if field.field.widget.input_type == 'select' %}
+          <select name="{{ field.html_name }}" class="form-ctrl">{% for val,lbl in field.field.choices %}<option value="{{ val }}" {% if field.value == val %}selected{% endif %}>{{ lbl }}</option>{% endfor %}</select>
+        {% elif field.field.widget.input_type == 'textarea' %}
+          <textarea name="{{ field.html_name }}" class="form-ctrl" rows="2" placeholder="{{ field.field.widget.attrs.placeholder|default:'' }}">{{ field.value|default:'' }}</textarea>
+        {% elif field.field.widget.input_type == 'password' %}
+          <input type="password" name="{{ field.html_name }}" class="form-ctrl" placeholder="••••••••">
+        {% else %}
+          <input type="{{ field.field.widget.input_type|default:'text' }}" name="{{ field.html_name }}" value="{{ field.value|default:'' }}" class="form-ctrl" placeholder="{{ field.label }}">
+        {% endif %}
+        {% if field.errors %}<div class="field-error"><i class="fas fa-exclamation-circle"></i> {{ field.errors.0 }}</div>{% endif %}
+        {% if field.help_text %}<div style="font-size:.72rem;color:var(--muted);margin-top:.2rem;">{{ field.help_text }}</div>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:.95rem;font-size:1rem;border-radius:12px;margin-top:.5rem;">
+      <i class="fas fa-user-plus"></i> Créer mon compte
+    </button>
+  </form>
+  <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center;">
+    <a href="https://wa.me/25779000000" target="_blank" class="btn btn-whatsapp" style="width:100%;justify-content:center;">
+      <i class="fab fa-whatsapp"></i> Besoin d'aide ? WhatsApp Admin
+    </a>
+  </div>
+</div>
+</div>
+{% endblock %}

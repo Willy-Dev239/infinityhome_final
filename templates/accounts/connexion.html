@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+{% block title %}Connexion | Infinity Home{% endblock %}
+{% block nav_home %}active{% endblock %}
+{% block extra_css %}
+<style>
+.auth-wrap{min-height:calc(100vh - calc(var(--topbar-h) + var(--nav-h)));display:flex;align-items:center;justify-content:center;padding:3rem 1rem}
+.auth-grid{display:grid;grid-template-columns:1fr 1fr;max-width:900px;width:100%;border-radius:22px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.14);border:1px solid var(--bd)}
+.auth-left{background:linear-gradient(135deg,#080f1f,#0d1a2e,#1a56db);padding:3rem;display:flex;flex-direction:column;justify-content:space-between;color:#fff;position:relative;overflow:hidden}
+.auth-left::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,.07),transparent 70%)}
+.auth-right{background:#fff;padding:3rem}
+.auth-feat{display:flex;align-items:center;gap:.7rem;font-size:.83rem;opacity:.75;margin-bottom:.6rem}
+.auth-feat i{width:22px;height:22px;border-radius:6px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.7rem;flex-shrink:0}
+@media(max-width:700px){.auth-grid{grid-template-columns:1fr}.auth-left{display:none}}
+</style>
+{% endblock %}
+{% block visitor_content %}
+<div class="auth-wrap">
+<div class="auth-grid">
+  <div class="auth-left">
+    <div>
+      <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:2rem">
+        <div style="width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:1.2rem"><i class="fas fa-hard-hat"></i></div>
+        <div><div style="font-family:'Syne',sans-serif;font-size:.88rem;font-weight:800;line-height:1.2">INFINITY HOME</div><div style="font-size:.62rem;opacity:.5;text-transform:uppercase;letter-spacing:.5px">Rewire & Construction</div></div>
+      </div>
+      <h2 style="font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;margin-bottom:1rem;line-height:1.2">Bienvenue<br>dans votre espace</h2>
+      <p style="opacity:.7;font-size:.88rem;line-height:1.7;margin-bottom:1.5rem">Gérez vos demandes, suivez vos techniciens et communiquez directement avec notre équipe.</p>
+      <div class="auth-feat"><i class="fas fa-bolt"></i> Demandes en quelques clics</div>
+      <div class="auth-feat"><i class="fas fa-user-check"></i> Techniciens qualifiés assignés</div>
+      <div class="auth-feat"><i class="fab fa-whatsapp" style="color:#25D366"></i> Support WhatsApp +257 77 869 915</div>
+      <div class="auth-feat"><i class="fas fa-comments"></i> Groupe chat avec l'admin</div>
+    </div>
+    <div style="font-size:.73rem;opacity:.4">&copy; 2025 Infinity Home Rewire & Construction</div>
+  </div>
+  <div class="auth-right">
+    <div style="margin-bottom:1.8rem">
+      <h2 style="font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--dk);margin-bottom:.4rem">Se connecter</h2>
+      <p style="color:var(--mu);font-size:.85rem">Pas encore de compte ? <a href="{% url 'accounts:inscription' %}" style="color:var(--pr);font-weight:600">Créer un compte</a></p>
+    </div>
+    {% if error %}<div class="alert alert-error" style="margin-bottom:1rem"><i class="fas fa-exclamation-circle"></i> {{ error }}</div>{% endif %}
+    <form method="post">
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ next }}">
+      <div class="fg"><label>Nom d'utilisateur</label><input type="text" name="username" value="{{ username }}" placeholder="votre_identifiant" required autofocus></div>
+      <div class="fg" style="margin-bottom:1.5rem"><label>Mot de passe</label><input type="password" name="password" placeholder="••••••••" required></div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:.85rem;font-size:.9rem;border-radius:11px"><i class="fas fa-sign-in-alt"></i> Se connecter</button>
+    </form>
+    <div style="margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid var(--bd);text-align:center">
+      <div style="font-size:.8rem;color:var(--mu);margin-bottom:.7rem">Ou contactez-nous directement</div>
+      <a href="https://wa.me/25777869915" target="_blank" class="btn btn-wa" style="width:100%;justify-content:center"><i class="fab fa-whatsapp"></i> WhatsApp — +257 77 869 915</a>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}

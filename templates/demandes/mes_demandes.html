@@ -1,0 +1,148 @@
+{% extends 'base/base.html' %}
+{% block title %}Mes demandes | Infinity Home{% endblock %}
+{% block page_title %}📋 Mes demandes{% endblock %}
+{% block sb_demandes %}on{% endblock %}
+{% block extra_css %}
+<style>
+.page-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:.8rem}
+.page-hd h1{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--dk)}
+.dc{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.dc-btn{padding:.38rem .85rem;border-radius:20px;font-size:.78rem;font-weight:600;cursor:pointer;border:1.5px solid var(--bd);background:#fff;color:var(--mu);transition:all .18s}
+.dc-btn:hover,.dc-btn.on{background:var(--pr);color:#fff;border-color:var(--pr)}
+.dcard{background:#fff;border-radius:14px;padding:1.2rem 1.4rem;border:1px solid var(--bd);box-shadow:0 2px 8px rgba(0,0,0,.04);display:flex;align-items:center;gap:1.2rem;transition:all .2s;cursor:pointer;margin-bottom:.8rem}
+.dcard:hover{transform:translateX(4px);box-shadow:0 6px 20px rgba(0,0,0,.1);border-color:rgba(26,86,219,.2)}
+.d-ic{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.d-info{flex:1;min-width:0}
+.d-title{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:var(--dk);margin-bottom:.25rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.d-meta{font-size:.77rem;color:var(--mu);display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.d-meta i{color:var(--pr);font-size:.68rem}
+.d-acts{display:flex;align-items:center;gap:.6rem;flex-shrink:0}
+/* Modal demande rapide */
+.urgence-btns{display:flex;gap:.7rem}
+.urg-btn{flex:1;border:2px solid var(--bd);border-radius:11px;padding:.8rem;text-align:center;cursor:pointer;transition:all .2s;font-size:.82rem;font-weight:600;background:#fff}
+.urg-btn:hover{border-color:var(--pr)}
+.urg-btn.u-ok.sel{border-color:#16a34a;background:#f0fdf4;color:#16a34a}
+.urg-btn.u-wa.sel{border-color:#d97706;background:#fffbeb;color:#d97706}
+.urg-btn.u-re.sel{border-color:#dc2626;background:#fef2f2;color:#dc2626}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-hd">
+  <div>
+    <h1>Mes demandes</h1>
+    <div style="font-size:.82rem;color:var(--mu);margin-top:.2rem">{{ demandes.count }} demande{{ demandes.count|pluralize }} au total</div>
+  </div>
+  <button onclick="openModal('m-new')" class="btn btn-primary"><i class="fas fa-plus"></i> Nouvelle demande</button>
+</div>
+
+<!-- Filtres -->
+<div class="dc">
+  <button class="dc-btn on" onclick="filterD('',this)">Toutes</button>
+  <button class="dc-btn" onclick="filterD('en_attente',this)">⏳ En attente</button>
+  <button class="dc-btn" onclick="filterD('assignee',this)">👷 Assignée</button>
+  <button class="dc-btn" onclick="filterD('en_cours',this)">🔨 En cours</button>
+  <button class="dc-btn" onclick="filterD('terminee',this)">✅ Terminée</button>
+  <button class="dc-btn" onclick="filterD('annulee',this)">❌ Annulée</button>
+</div>
+
+{% if not demandes %}
+<div style="text-align:center;padding:4rem 2rem;background:#fff;border-radius:18px;border:1px solid var(--bd)">
+  <div style="font-size:3.5rem;margin-bottom:1rem">📋</div>
+  <h3 style="font-family:'Syne',sans-serif;font-weight:800;margin-bottom:.5rem">Aucune demande</h3>
+  <p style="color:var(--mu);margin-bottom:1.5rem">Vous n'avez pas encore soumis de demande.</p>
+  <button onclick="openModal('m-new')" class="btn btn-primary"><i class="fas fa-plus"></i> Faire ma première demande</button>
+</div>
+{% else %}
+<div id="d-list">
+{% for d in demandes %}
+<div class="dcard" data-statut="{{ d.statut }}" onclick="window.location='{% url 'demandes:detail_demande' d.pk %}'">
+  <div class="d-ic" style="background:{% if d.type_travaux == 'electricite' %}#fffbeb{% elif d.type_travaux == 'plomberie' %}#eff6ff{% elif d.type_travaux == 'construction' %}#f0fdf4{% else %}#fdf4ff{% endif %}">
+    {% if d.type_travaux == 'electricite' %}⚡{% elif d.type_travaux == 'plomberie' %}🔧{% elif d.type_travaux == 'construction' %}🏗️{% elif d.type_travaux == 'soudure' %}🔩{% elif d.type_travaux == 'peinture' %}🎨{% else %}🪚{% endif %}
+  </div>
+  <div class="d-info">
+    <div class="d-title">{{ d.titre }}</div>
+    <div class="d-meta">
+      <span><i class="fas fa-map-marker-alt"></i> {{ d.localite }}</span>
+      <span><i class="fas fa-calendar"></i> {{ d.date_creation|date:"d/m/Y" }}</span>
+      {% if d.technicien %}<span style="color:#16a34a"><i class="fas fa-user-check"></i> {{ d.technicien.nom_complet }}</span>{% endif %}
+    </div>
+  </div>
+  <div class="d-acts">
+    {% if d.urgence == 'critique' %}<span class="bs bs-re">🔴 Critique</span>{% elif d.urgence == 'urgence' %}<span class="bs bs-wa">🟡 Urgent</span>{% endif %}
+    <span class="bs {% if d.statut == 'en_attente' %}bs-wa{% elif d.statut == 'assignee' %}bs-bl{% elif d.statut == 'en_cours' %}bs-ok{% elif d.statut == 'terminee' %}bs-ok{% else %}bs-re{% endif %}">{{ d.get_statut_display }}</span>
+    <a href="{% url 'demandes:detail_demande' d.pk %}" class="btn btn-sm btn-light" onclick="event.stopPropagation()"><i class="fas fa-eye"></i></a>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endif %}
+
+<!-- ══ MODAL NOUVELLE DEMANDE ══ -->
+<div class="modal-ov" id="m-new">
+  <div class="modal modal-lg">
+    <div class="mh">
+      <div class="mh-ic bl"><i class="fas fa-plus-circle" style="color:var(--pr)"></i></div>
+      <div class="mh-tx"><div class="mh-t">Nouvelle demande d'intervention</div><div class="mh-s">Décrivez vos travaux — nous assignerons le bon technicien</div></div>
+      <button class="mc" onclick="closeModal('m-new')">×</button>
+    </div>
+    <div class="mb">
+      <form method="post" action="{% url 'demandes:nouvelle_demande' %}" enctype="multipart/form-data" id="f-new">
+        {% csrf_token %}
+        <div class="fg-row">
+          <div class="fg">
+            <label>Type de travaux *</label>
+            <select name="type_travaux" required>
+              <option value="">Choisir...</option>
+              <option value="electricite">⚡ Électricité</option>
+              <option value="plomberie">🔧 Plomberie</option>
+              <option value="construction">🏗️ Construction</option>
+              <option value="soudure">🔩 Soudure</option>
+              <option value="peinture">🎨 Peinture</option>
+              <option value="menuiserie">🪚 Menuiserie</option>
+              <option value="autre">🔨 Autre</option>
+            </select>
+          </div>
+          <div class="fg"><label>Localité *</label><input type="text" name="localite" placeholder="Ex: Rohero, Bujumbura" required></div>
+        </div>
+        <div class="fg"><label>Titre de la demande *</label><input type="text" name="titre" placeholder="Ex: Réparation installation électrique salon" required></div>
+        <div class="fg"><label>Description détaillée *</label><textarea name="description" rows="4" placeholder="Décrivez le problème en détail..." required></textarea></div>
+        <div class="fg"><label>Adresse complète *</label><textarea name="adresse" rows="2" placeholder="Quartier, rue, repère..." required></textarea></div>
+        <div class="fg">
+          <label>Niveau d'urgence</label>
+          <div class="urgence-btns">
+            <div class="urg-btn u-ok sel" onclick="selUrg('normale',this)">🟢 Normale</div>
+            <div class="urg-btn u-wa" onclick="selUrg('urgence',this)">🟡 Urgence</div>
+            <div class="urg-btn u-re" onclick="selUrg('critique',this)">🔴 Critique</div>
+          </div>
+          <input type="hidden" name="urgence" id="urg-val" value="normale">
+        </div>
+        <div class="fg"><label>Photo (optionnel)</label><input type="file" name="photo" accept="image/*" style="padding:.55rem"></div>
+      </form>
+    </div>
+    <div class="mf">
+      <button class="btn btn-light" onclick="closeModal('m-new')">Annuler</button>
+      <button class="btn btn-primary" onclick="document.getElementById('f-new').submit()"><i class="fas fa-paper-plane"></i> Envoyer</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function openModal(id){document.getElementById(id).classList.add('open');}
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+document.querySelectorAll('.modal-ov').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open');}));
+function selUrg(v,el){
+  document.querySelectorAll('.urg-btn').forEach(b=>b.classList.remove('sel'));
+  el.classList.add('sel');document.getElementById('urg-val').value=v;
+}
+function filterD(statut,btn){
+  document.querySelectorAll('.dc-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.dcard').forEach(c=>{
+    c.style.display=(!statut||c.dataset.statut===statut)?'flex':'none';
+  });
+}
+</script>
+{% endblock %}

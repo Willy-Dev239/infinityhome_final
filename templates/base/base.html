@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Infinity Home Rewire & Construction{% endblock %}</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --pr:#1a56db;--prd:#1340b0;--prl:#eff6ff;
+  --gold:#f59e0b;--dk:#0c1e3c;--dk2:#1e293b;
+  --tx:#1e293b;--mu:#64748b;--bg:#f0f4f8;--bd:#e2e8f0;--sur:#fff;
+  --topbar-h:44px;--nav-h:68px;--sw:264px;--wa:#25D366;
+  --sh:0 4px 20px rgba(0,0,0,.07);
+}
+html{min-height:100%;background:linear-gradient(145deg,#e0f2fe 0%,#f0f9ff 30%,#f0fdf4 65%,#dbeafe 100%);background-attachment:fixed}
+body{font-family:'DM Sans',sans-serif;color:var(--tx);overflow-x:hidden;min-height:100vh;background:transparent}
+a{text-decoration:none;color:inherit}
+
+/* ─── LOADER ─── */
+#pl{position:fixed;inset:0;z-index:9999;background:var(--dk);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s}
+#pl.hid{opacity:0;visibility:hidden;pointer-events:none}
+.ld-ic{font-size:2.8rem;margin-bottom:.9rem;animation:rock 1.4s ease-in-out infinite}
+@keyframes rock{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+.ld-nm{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:1.3rem;letter-spacing:1px}
+.ld-nm span{color:#fbbf24}
+.ld-bar{width:160px;height:2px;background:rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
+.ld-fill{height:100%;width:0;background:linear-gradient(90deg,var(--pr),#fbbf24);animation:ldfill 1.5s ease forwards}
+@keyframes ldfill{to{width:100%}}
+
+/* ─── SIDEBAR CLIENT ─── */
+.sidebar{width:var(--sw);background:linear-gradient(180deg,#080f1f 0%,#0d1a2e 50%,#0c1e3c 100%);position:fixed;top:0;bottom:0;left:0;z-index:400;display:flex;flex-direction:column;box-shadow:4px 0 32px rgba(0,0,0,.35);transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.sb-logo{padding:1.2rem 1.1rem;border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:.75rem}
+.sb-lic{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,var(--pr),#2563eb);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;flex-shrink:0;box-shadow:0 4px 14px rgba(26,86,219,.45)}
+.sb-lt .t1{font-family:'Syne',sans-serif;font-size:.84rem;font-weight:800;color:#f0f4f8;line-height:1.2;letter-spacing:.3px}
+.sb-lt .t2{font-size:.59rem;color:#374151;text-transform:uppercase;letter-spacing:.6px;margin-top:1px}
+.sb-sec{font-size:.59rem;font-weight:700;letter-spacing:1.4px;color:#1f2937;text-transform:uppercase;padding:.8rem 1.1rem .25rem}
+.sb-a{display:flex;align-items:center;gap:.7rem;padding:.66rem 1.1rem;margin:.1rem .5rem;border-radius:9px;font-size:.845rem;font-weight:500;color:#4b5563;transition:all .18s;position:relative;border:1px solid transparent}
+.sb-a:hover{background:rgba(255,255,255,.06);color:#d1d5db}
+.sb-a.on{background:linear-gradient(135deg,rgba(26,86,219,.22),rgba(37,99,235,.1));color:#60a5fa;border-color:rgba(26,86,219,.22)}
+.sb-a.on::before{content:'';position:absolute;left:-1px;top:22%;height:56%;width:3px;background:var(--pr);border-radius:0 3px 3px 0}
+.sb-a i{width:17px;text-align:center;font-size:.84rem;flex-shrink:0}
+.sb-bdg{margin-left:auto;background:#ef4444;color:#fff;font-size:.58rem;font-weight:800;padding:.08rem .4rem;border-radius:8px;display:none}
+.sb-bdg.on{display:inline}
+.sb-div{height:1px;background:rgba(255,255,255,.06);margin:.5rem 1rem}
+.sb-wa{color:#25D366!important;background:rgba(37,211,102,.1)!important;border-color:rgba(37,211,102,.18)!important}
+.sb-wa:hover{background:rgba(37,211,102,.2)!important;color:#22c55e!important}
+.sb-foot{margin-top:auto;padding:.9rem 1.1rem;border-top:1px solid rgba(255,255,255,.06)}
+.sb-usr{display:flex;align-items:center;gap:.65rem}
+.sb-av{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--pr),#2563eb);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.88rem;flex-shrink:0}
+.sb-un{font-size:.82rem;font-weight:600;color:#e5e7eb;max-width:118px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sb-ur{font-size:.63rem;color:#374151;margin-top:1px}
+.sb-out{margin-left:auto;background:none;border:none;color:#374151;cursor:pointer;font-size:.88rem;padding:3px;transition:color .18s}
+.sb-out:hover{color:#ef4444}
+
+/* ─── APP LAYOUT ─── */
+.app-wrap{display:flex;min-height:100vh}
+.app-main{margin-left:var(--sw);flex:1;display:flex;flex-direction:column;min-height:100vh}
+.atb{background:rgba(26,62,138,.9);backdrop-filter:blur(8px);height:56px;display:flex;align-items:center;padding:0 1.8rem;position:sticky;top:0;z-index:200;gap:.8rem;border-bottom:2px solid rgba(96,165,250,.35);box-shadow:0 2px 16px rgba(26,86,219,.18)}
+.atb-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:800;color:#fff;flex:1;letter-spacing:.2px}
+.tb-r{display:flex;align-items:center;gap:.6rem;flex-shrink:0}
+.notif-btn{position:relative;width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.75);font-size:.9rem;cursor:pointer;transition:all .18s}
+.notif-btn:hover{background:var(--pr);color:#fff}
+.notif-badge{position:absolute;top:-3px;right:-3px;background:#ef4444;color:#fff;font-size:.56rem;font-weight:800;min-width:16px;height:16px;border-radius:10px;display:none;align-items:center;justify-content:center;border:2px solid var(--dk)}
+.notif-badge.show{display:flex}
+.mob-tog{display:none;background:none;border:none;color:rgba(255,255,255,.75);font-size:1.1rem;cursor:pointer;padding:4px}
+.pg{padding:1.8rem;flex:1}
+
+/* ─── VISITOR NAVBAR ─── */
+.tib{height:var(--topbar-h);background:rgba(30,58,138,.85);backdrop-filter:blur(4px);border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;padding:0 2.5rem;gap:2rem;position:fixed;top:0;left:0;right:0;z-index:200}
+.tib-l,.tib-r{display:flex;align-items:center;gap:1.3rem}
+.tib-r{margin-left:auto}
+.tib-i{display:flex;align-items:center;gap:.4rem;font-size:.71rem;color:rgba(255,255,255,.45)}
+.tib-i a{color:rgba(255,255,255,.45);transition:color .18s}.tib-i a:hover{color:#fbbf24}
+.tib-i i{font-size:.62rem;color:#fbbf24}
+.tib-tag{background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.2);border-radius:20px;padding:.18rem .72rem;font-size:.63rem;font-weight:700}
+.tib-dv{width:1px;height:16px;background:rgba(255,255,255,.1)}
+.navbar{height:var(--nav-h);background:rgba(37,99,235,.9);backdrop-filter:blur(8px);border-bottom:3px solid rgba(96,165,250,.5);position:fixed;top:var(--topbar-h);left:0;right:0;z-index:190;box-shadow:0 4px 24px rgba(37,99,235,.2)}
+.nav-in{max-width:1320px;margin:0 auto;padding:0 2.5rem;display:flex;align-items:center;height:100%;gap:1.5rem}
+.nav-brand{display:flex;align-items:center;gap:.8rem;flex-shrink:0}
+.nav-logo{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--pr),#2563eb);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;flex-shrink:0;box-shadow:0 4px 16px rgba(26,86,219,.45);transition:transform .2s}
+.nav-logo:hover{transform:rotate(-6deg) scale(1.06)}
+.nav-bt{font-family:'Syne',sans-serif;font-size:.86rem;font-weight:800;color:#fff;line-height:1.2;letter-spacing:.3px}
+.nav-bs{font-size:.6rem;color:rgba(255,255,255,.45);letter-spacing:.5px;text-transform:uppercase}
+.nav-tools{display:flex;align-items:center;gap:.3rem;margin-left:.3rem}
+.nav-tool{width:27px;height:27px;border-radius:7px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.72rem;animation:float 2.8s ease-in-out infinite}
+.nav-tool:nth-child(2){animation-delay:.35s}.nav-tool:nth-child(3){animation-delay:.7s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.nav-links{display:flex;align-items:center;gap:.05rem;margin-left:auto}
+.nav-link{display:flex;align-items:center;gap:.4rem;padding:.55rem 1rem;font-size:.83rem;font-weight:600;color:rgba(255,255,255,.65);transition:all .18s;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-3px}
+.nav-link i{font-size:.73rem}
+.nav-link:hover{color:#fff;background:rgba(255,255,255,.1)}
+.nav-link.active{color:#fff;font-weight:700;border-bottom-color:#60a5fa;background:rgba(255,255,255,.1)}
+.nav-acts{display:flex;align-items:center;gap:.5rem;margin-left:1rem;flex-shrink:0}
+.menu-toggle{display:none;width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;margin-left:.5rem}
+.menu-toggle span{display:block;width:16px;height:2px;background:rgba(255,255,255,.7);border-radius:2px}
+.mob-menu{display:none;position:fixed;top:calc(var(--topbar-h) + var(--nav-h));left:0;right:0;bottom:0;z-index:180;background:rgba(30,58,138,.97);backdrop-filter:blur(20px);padding:1.5rem;flex-direction:column;gap:.3rem;overflow-y:auto}
+.mob-menu.open{display:flex}
+.mob-menu .nav-link{font-size:.95rem;padding:.85rem 1rem;border-radius:10px;color:rgba(255,255,255,.6);border-bottom:none;margin-bottom:0}
+.mob-menu .nav-link:hover,.mob-menu .nav-link.active{background:rgba(26,86,219,.25);color:#fff}
+.cw{padding-top:calc(var(--topbar-h) + var(--nav-h))}
+@media(max-width:960px){.nav-links,.nav-tools{display:none}.menu-toggle{display:flex}}
+@media(max-width:768px){.tib-r,.tib-dv{display:none}}
+
+/* ─── BUTTONS ─── */
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;border:none;transition:all .2s}
+.btn-primary{background:var(--pr);color:#fff;box-shadow:0 2px 8px rgba(26,86,219,.3)}.btn-primary:hover{background:var(--prd);transform:translateY(-1px);box-shadow:0 4px 14px rgba(26,86,219,.4)}
+.btn-outline{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.25)}.btn-outline:hover{background:rgba(255,255,255,.18)}
+.btn-light{background:#fff;color:var(--pr);border:1.5px solid var(--pr)}.btn-light:hover{background:var(--prl)}
+.btn-muted{background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.12)}.btn-muted:hover{background:rgba(255,255,255,.12);color:#fff}
+.btn-dk{background:var(--dk);color:#fff}.btn-dk:hover{background:var(--dk2)}
+.btn-da{background:#fee2e2;color:#dc2626;border:1px solid #fecaca}.btn-da:hover{background:#fecaca}
+.btn-su{background:#dcfce7;color:#16a34a;border:1px solid #bbf7d0}
+.btn-wa{background:var(--wa);color:#fff}.btn-wa:hover{background:#22c55e;transform:translateY(-1px);box-shadow:0 4px 12px rgba(37,211,102,.4)}
+.btn-sm{padding:.38rem .85rem;font-size:.78rem}.btn-xs{padding:.28rem .65rem;font-size:.72rem}
+
+/* ─── ALERTS ─── */
+.msgs{max-width:1320px;margin:.8rem auto;padding:0 2.5rem}
+.alert{padding:.85rem 1.2rem;border-radius:10px;margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem;font-size:.86rem;animation:ain .3s ease;border-left:4px solid transparent}
+@keyframes ain{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.alert-success{background:#f0fdf4;border-color:#16a34a;color:#166534;border-right:1px solid #bbf7d0;border-top:1px solid #bbf7d0;border-bottom:1px solid #bbf7d0}
+.alert-error{background:#fef2f2;border-color:#dc2626;color:#991b1b;border-right:1px solid #fecaca;border-top:1px solid #fecaca;border-bottom:1px solid #fecaca}
+.alert-info{background:#eff6ff;border-color:#1a56db;color:#1e40af;border-right:1px solid #bfdbfe;border-top:1px solid #bfdbfe;border-bottom:1px solid #bfdbfe}
+.alert-warning{background:#fffbeb;border-color:#d97706;color:#92400e;border-right:1px solid #fde68a;border-top:1px solid #fde68a;border-bottom:1px solid #fde68a}
+
+/* ─── MODALS ─── */
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(8,15,40,.65);z-index:600;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(5px)}
+.modal-ov.open{display:flex;animation:mov .2s ease}
+@keyframes mov{from{opacity:0}to{opacity:1}}
+.modal{background:#fff;border-radius:20px;width:580px;max-width:100%;max-height:92vh;overflow-y:auto;box-shadow:0 32px 90px rgba(0,0,0,.25);animation:msc .26s cubic-bezier(.34,1.56,.64,1)}
+@keyframes msc{from{opacity:0;transform:scale(.88) translateY(20px)}to{opacity:1;transform:none}}
+.modal-lg{width:720px}.modal-sm{width:420px}
+.mh{padding:1.3rem 1.5rem 0;display:flex;align-items:center;gap:.9rem;padding-bottom:1rem;border-bottom:1px solid var(--bd);margin-bottom:1.2rem}
+.mh-ic{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0}
+.mh-ic.bl{background:#dbeafe}.mh-ic.gr{background:#d1fae5}.mh-ic.pu{background:#ede9fe}.mh-ic.or{background:#fed7aa}.mh-ic.re{background:#fee2e2}.mh-ic.yw{background:#fef3c7}
+.mh-tx{flex:1}.mh-t{font-family:'Syne',sans-serif;font-size:.98rem;font-weight:800;color:var(--dk)}.mh-s{font-size:.74rem;color:var(--mu);margin-top:2px}
+.mc{cursor:pointer;background:none;border:none;color:#94a3b8;font-size:1.4rem;padding:3px;border-radius:8px;transition:all .15s;flex-shrink:0}.mc:hover{background:#f1f5f9;color:var(--tx)}
+.mb{padding:0 1.5rem}
+.mf{padding:1rem 1.5rem 1.4rem;display:flex;gap:.65rem;justify-content:flex-end;border-top:1px solid var(--bd);margin-top:1.2rem;flex-wrap:wrap}
+.mfs{padding:1rem 1.5rem 1.4rem;display:flex;gap:.65rem;justify-content:space-between;border-top:1px solid var(--bd);margin-top:1.2rem;flex-wrap:wrap}
+
+/* ─── FORMS ─── */
+.fg{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.95rem}
+.fg label{font-size:.73rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.5px}
+.fg input,.fg select,.fg textarea{padding:.72rem .95rem;border:1.5px solid var(--bd);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:.875rem;color:var(--tx);background:#fff;outline:none;transition:all .18s;width:100%}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--pr);box-shadow:0 0 0 3px rgba(26,86,219,.1)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.fg-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.85rem}
+
+/* ─── CARDS / TABLE / BADGES ─── */
+.card{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:1.3rem 1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.card-t{font-family:'Syne',sans-serif;font-size:.92rem;font-weight:800;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;color:var(--dk)}
+.bs{display:inline-flex;align-items:center;padding:.22rem .72rem;border-radius:20px;font-size:.71rem;font-weight:700;white-space:nowrap}
+.bs-ok{background:#d1fae5;color:#065f46}.bs-re{background:#fee2e2;color:#991b1b}
+.bs-wa{background:#fef3c7;color:#78350f}.bs-bl{background:#dbeafe;color:#1e40af}
+.bs-gy{background:#f1f5f9;color:var(--mu)}.bs-pu{background:#ede9fe;color:#5b21b6}.bs-or{background:#fed7aa;color:#92400e}
+.tbl{overflow-x:auto;border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:.86rem}
+thead tr{background:#f8fafc}
+th{text-align:left;font-weight:700;font-size:.69rem;color:var(--mu);padding:.8rem 1rem;border-bottom:2px solid var(--bd);text-transform:uppercase;letter-spacing:.4px;white-space:nowrap}
+td{padding:.82rem 1rem;border-bottom:1px solid #f1f5f9;color:#374151;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:#fafafa}
+
+/* ─── WHATSAPP FAB ─── */
+.wa-fab{position:fixed;bottom:22px;right:20px;z-index:999;width:56px;height:56px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.55rem;box-shadow:0 6px 24px rgba(37,211,102,.5);animation:wap 2.5s ease infinite;transition:transform .2s}
+.wa-fab:hover{transform:scale(1.1)}
+@keyframes wap{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,.7),0 0 0 10px rgba(37,211,102,.1)}}
+.wa-tip{position:fixed;bottom:88px;right:20px;z-index:999;background:var(--dk);color:#fff;padding:.52rem .9rem;border-radius:9px;font-size:.78rem;font-weight:600;white-space:nowrap;opacity:0;transition:opacity .18s;pointer-events:none}
+.wa-fab:hover~.wa-tip{opacity:1}
+#scroll-top{position:fixed;bottom:24px;left:22px;z-index:50;width:40px;height:40px;border-radius:10px;background:var(--pr);color:#fff;border:none;display:flex;align-items:center;justify-content:center;font-size:.85rem;cursor:pointer;box-shadow:0 4px 14px rgba(26,86,219,.4);opacity:0;transform:translateY(12px);transition:all .3s;pointer-events:none}
+#scroll-top.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ─── FOOTER ─── */
+footer{background:rgba(30,58,138,.85);backdrop-filter:blur(4px);color:rgba(255,255,255,.5);padding:3.5rem 2.5rem 2rem;margin-top:4rem;border-top:1px solid rgba(255,255,255,.07);position:relative;overflow:hidden}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pr),#6366f1,#fbbf24,var(--pr));background-size:300%;animation:barM 6s linear infinite}
+@keyframes barM{0%{background-position:0%}100%{background-position:300%}}
+.ft-in{max-width:1320px;margin:0 auto;position:relative;z-index:1}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+.ft-lic{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--pr),#2563eb);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;margin-bottom:.9rem}
+.ft-nm{font-family:'Syne',sans-serif;font-size:.92rem;font-weight:800;color:#fff;margin-bottom:.6rem;letter-spacing:.3px}
+.ft-brand p{font-size:.8rem;line-height:1.85;max-width:255px}
+.ft-soc{display:flex;gap:.5rem;margin-top:1.1rem}
+.soc-btn{width:33px;height:33px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.76rem;transition:all .2s}
+.soc-btn:hover{background:var(--pr);color:#fff;transform:translateY(-2px);border-color:var(--pr)}
+.ft-col h4{color:#fff;font-size:.8rem;font-weight:700;margin-bottom:1rem;letter-spacing:.5px;text-transform:uppercase}
+.ft-col a{display:flex;align-items:center;gap:.5rem;font-size:.79rem;margin-bottom:.55rem;color:rgba(255,255,255,.38);transition:all .18s}
+.ft-col a:hover{color:#fff;padding-left:.3rem}
+.ft-col a i{width:13px;color:var(--pr);font-size:.7rem}
+.ft-bot{border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;font-size:.75rem;flex-wrap:wrap;gap:1rem}
+.ft-links{display:flex;gap:1.4rem}
+.ft-links a{color:rgba(255,255,255,.28);transition:color .2s}.ft-links a:hover{color:rgba(255,255,255,.55)}
+.img-strip{overflow:hidden;padding:.7rem 0;background:rgba(255,255,255,.06);border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.ist{display:flex;gap:.8rem;animation:iss 32s linear infinite;width:max-content}
+.ist:hover{animation-play-state:paused}
+@keyframes iss{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.si{width:400px;height:300px;border-radius:10px;overflow:hidden;flex-shrink:0;box-shadow:0 3px 14px rgba(0,0,0,.25)}
+.si img{width:100%;height:100%;object-fit:cover}
+
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%)}.sidebar.mob{transform:translateX(0)}
+  .app-main{margin-left:0}.mob-tog{display:flex}
+  .ft-grid{grid-template-columns:1fr 1fr}.ft-bot{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){.ft-grid{grid-template-columns:1fr}}
+</style>
+{% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<div id="pl"><div class="ld-ic">🏗️</div><div class="ld-nm"><span>INFINITY HOME </span><span> REWIRE & CONSTRUCTION</span></div><div class="ld-bar"><div class="ld-fill"></div></div></div>
+
+{% if user.is_authenticated %}
+<!-- ══ LAYOUT CLIENT ══ -->
+<div class="app-wrap">
+<aside class="sidebar" id="sidebar">
+  <div class="sb-logo">
+    <div class="sb-lic"><i class="fas fa-hard-hat"></i></div>
+    <div class="sb-lt"><div class="t1">INFINITY HOME</div><div class="t2">Rewire & Construction</div></div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:.5rem 0;scrollbar-width:thin;scrollbar-color:#1f2937 transparent">
+    <div class="sb-sec">Principal</div>
+    <a href="{% url 'core:accueil' %}" class="sb-a {% block sb_home %}{% endblock %}"><i class="fas fa-home"></i> Accueil</a>
+    {% comment %} <a href="{% url 'core:services' %}" class="sb-a {% block sb_services %}{% endblock %}"><i class="fas fa-tools"></i> Nos Services</a> {% endcomment %}
+
+    <div class="sb-sec">Mes demandes</div>
+    {% comment %} <a href="{% url 'demandes:nouvelle_demande' %}" class="sb-a {% block sb_new %}{% endblock %}"><i class="fas fa-plus-circle"></i> Nouvelle demande</a> {% endcomment %}
+    <a href="{% url 'demandes:mes_demandes' %}" class="sb-a {% block sb_demandes %}{% endblock %}"><i class="fas fa-clipboard-list"></i> Mes demandes</a>
+    <a href="{% url 'demandes:notifications' %}" class="sb-a {% block sb_notifs %}{% endblock %}">
+      <i class="fas fa-bell"></i> Notifications
+      <span class="sb-bdg" id="sb-nb">0</span>
+    </a>
+
+    <div class="sb-sec">Communauté</div>
+    <a href="{% url 'demandes:chat' %}" class="sb-a {% block sb_chat %}{% endblock %}"><i class="fas fa-comments"></i> Groupe Chat</a>
+
+    <div class="sb-sec">Mon compte</div>
+    <a href="{% url 'accounts:profil' %}" class="sb-a {% block sb_profil %}{% endblock %}"><i class="fas fa-user-circle"></i> Mon profil</a>
+    <a href="{% url 'core:a_propos' %}" class="sb-a {% block sb_apropos %}{% endblock %}"><i class="fas fa-building"></i> À propos</a>
+    <a href="{% url 'core:contact' %}" class="sb-a {% block sb_contact %}{% endblock %}"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="{% url 'core:surveillance' %}" class="sb-a {% block sb_surv %}{% endblock %}"><i class="fas fa-camera"></i> Home Security</a>
+
+    <div class="sb-div"></div>
+    <div class="sb-sec">Support direct</div>
+    <a href="https://wa.me/25777869915?text=Bonjour%20Infinity%20Home%2C%20j%27ai%20besoin%20d%27aide" target="_blank" class="sb-a sb-wa"><i class="fab fa-whatsapp"></i> WhatsApp Admin</a>
+    <a href="tel:+25766033033" class="sb-a" style="color:#fbbf24!important"><i class="fas fa-phone"></i> +257 66 033 033</a>
+  </div>
+  <div class="sb-foot">
+    <div class="sb-usr">
+      <div class="sb-av">{{ user.first_name|first|upper|default:user.username|first|upper }}</div>
+      <div style="flex:1;min-width:0"><div class="sb-un">{{ user.get_full_name|default:user.username }}</div><div class="sb-ur">Client</div></div>
+      <a href="{% url 'accounts:deconnexion' %}" class="sb-out" title="Déconnexion"><i class="fas fa-sign-out-alt"></i></a>
+    </div>
+  </div>
+</aside>
+
+<div class="app-main">
+  <header class="atb">
+    <button class="mob-tog" id="mob-btn" onclick="document.getElementById('sidebar').classList.toggle('mob')"><i class="fas fa-bars"></i></button>
+    <div class="atb-title">{% block page_title %}Infinity Home{% endblock %}</div>
+    <div class="tb-r">
+      <a href="{% url 'demandes:notifications' %}" class="notif-btn"><i class="fas fa-bell"></i><span class="notif-badge" id="notif-badge"></span></a>
+      <a href="{% url 'demandes:nouvelle_demande' %}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Nouvelle demande</a>
+    </div>
+  </header>
+  {% if messages %}
+  <div style="padding:.8rem 1.8rem 0">
+    {% for message in messages %}
+    <div class="alert alert-{% if message.tags == 'error' %}error{% elif message.tags == 'success' %}success{% elif message.tags == 'warning' %}warning{% else %}info{% endif %}">
+      <i class="fas fa-{% if message.tags == 'success' %}check-circle{% elif message.tags == 'error' %}times-circle{% else %}info-circle{% endif %}"></i>{{ message }}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  <div class="pg">{% block content %}{% endblock %}</div>
+</div>
+</div>
+<a class="wa-fab" href="https://wa.me/25777869915?text=Bonjour%20Infinity%20Home" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<div class="wa-tip">💬 +257 77 869 915</div>
+
+{% else %}
+<!-- ══ LAYOUT VISITEUR ══ -->
+<div class="tib">
+  <div class="tib-l">
+    <div class="tib-i"><i class="fas fa-phone"></i><a href="tel:+25766033033">+257 66 033 033</a></div>
+    <div class="tib-dv"></div>
+    <div class="tib-i"><i class="fas fa-envelope"></i><a href="mailto:info@infinityhome.bi">info@infinityhome.bi</a></div>
+    <div class="tib-dv"></div>
+    <div class="tib-i"><i class="fas fa-map-marker-alt"></i> Bd. de l'Uprona, Bujumbura</div>
+  </div>
+  <div class="tib-r">
+    <span class="tib-tag"><i class="fas fa-bolt"></i> Intervention rapide 24h</span>
+    <div class="tib-dv"></div>
+    <div class="tib-i"><i class="fas fa-star"></i> Techniciens certifiés</div>
+  </div>
+</div>
+<nav class="navbar" id="navbar">
+  <div class="nav-in">
+    <a href="{% url 'core:accueil' %}" class="nav-brand">
+      <div class="nav-logo"><i class="fas fa-hard-hat"></i></div>
+      <div><div class="nav-bt">INFINITY HOME</div><div class="nav-bs">Rewire &amp; Construction</div></div>
+    </a>
+    <div class="nav-tools"><div class="nav-tool">⚡</div><div class="nav-tool">🔧</div><div class="nav-tool">🏗️</div></div>
+    <div class="nav-links">
+      <a href="{% url 'core:accueil' %}" class="nav-link {% block nav_home %}{% endblock %}"><i class="fas fa-home"></i> Accueil</a>
+      <a href="{% url 'core:services' %}" class="nav-link {% block nav_services %}{% endblock %}"><i class="fas fa-tools"></i> Services</a>
+      <a href="{% url 'core:surveillance' %}" class="nav-link {% block nav_surveillance %}{% endblock %}"><i class="fas fa-camera"></i> Home Security</a>
+      <a href="{% url 'core:a_propos' %}" class="nav-link {% block nav_apropos %}{% endblock %}"><i class="fas fa-building"></i> À Propos</a>
+      <a href="{% url 'core:contact' %}" class="nav-link {% block nav_contact %}{% endblock %}"><i class="fas fa-envelope"></i> Contact</a>
+    </div>
+    <div class="nav-acts">
+      <a href="{% url 'accounts:connexion' %}" class="btn btn-outline btn-sm"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+      <a href="{% url 'accounts:inscription' %}" class="btn btn-primary btn-sm"><i class="fas fa-user-plus"></i> Inscription</a>
+      <button class="menu-toggle" onclick="openMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mob-menu" id="mob-menu">
+  <a href="{% url 'core:accueil' %}" class="nav-link" onclick="closeMenu()"><i class="fas fa-home"></i> Accueil</a>
+  <a href="{% url 'core:services' %}" class="nav-link" onclick="closeMenu()"><i class="fas fa-tools"></i> Services</a>
+  <a href="{% url 'core:surveillance' %}" class="nav-link" onclick="closeMenu()"><i class="fas fa-camera"></i> Surveillance</a>
+  <a href="{% url 'core:a_propos' %}" class="nav-link" onclick="closeMenu()"><i class="fas fa-building"></i> À Propos</a>
+  <a href="{% url 'core:contact' %}" class="nav-link" onclick="closeMenu()"><i class="fas fa-envelope"></i> Contact</a>
+  <hr style="border:none;border-top:1px solid rgba(255,255,255,.1);margin:.5rem 0">
+  <a href="{% url 'accounts:connexion' %}" class="nav-link" onclick="closeMenu()"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+  <a href="{% url 'accounts:inscription' %}" class="nav-link" onclick="closeMenu()"><i class="fas fa-user-plus"></i> Inscription</a>
+</div>
+{% if messages %}
+<div class="msgs" style="margin-top:calc(var(--topbar-h) + var(--nav-h) + .8rem)">
+  {% for message in messages %}
+  <div class="alert alert-{% if message.tags == 'error' %}error{% elif message.tags == 'success' %}success{% elif message.tags == 'warning' %}warning{% else %}info{% endif %}">
+    <i class="fas fa-{% if message.tags == 'success' %}check-circle{% elif message.tags == 'error' %}times-circle{% else %}info-circle{% endif %}"></i>{{ message }}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+<div class="cw">{% block visitor_content %}{% endblock %}</div>
+<div class="img-strip"><div class="ist">
+  <div class="si"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=320&q=75" alt=""></div>
+  <div class="si"><img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=320&q=75" alt=""></div>
+  <div class="si"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=320&q=75" alt=""></div>
+  <div class="si"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=320&q=75" alt=""></div>
+  <div class="si"><img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=320&q=75" alt=""></div>
+  <div class="si"><img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=320&q=75" alt=""></div>
+  <div class="si"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=320&q=75" alt=""></div>
+  <div class="si"><img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=320&q=75" alt=""></div>
+  <div class="si"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=320&q=75" alt=""></div>
+  <div class="si"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=320&q=75" alt=""></div>
+</div></div>
+<footer>
+  <div class="ft-in">
+    <div class="ft-grid">
+      <div class="ft-brand"><div class="ft-lic"><i class="fas fa-hard-hat"></i></div><div class="ft-nm">INFINITY HOME<br>REWIRE &amp; CONSTRUCTION</div><p>Votre partenaire de confiance pour tous vos travaux de construction, rénovation et aménagement au Burundi.</p><div class="ft-soc"><a href="https://www.facebook.com/infinityhomebi" class="soc-btn"><i class="fab fa-facebook-f"></i></a><a href="https://wa.me/25777869915" class="soc-btn"><i class="fab fa-whatsapp"></i></a><a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a><a href="#" class="soc-btn"><i class="fab fa-linkedin-in"></i></a></div></div>
+      <div class="ft-col"><h4>Navigation</h4><a href="{% url 'core:accueil' %}"><i class="fas fa-home"></i> Accueil</a><a href="{% url 'core:services' %}"><i class="fas fa-tools"></i> Nos Services</a><a href="{% url 'core:surveillance' %}"><i class="fas fa-camera"></i> Surveillance</a><a href="{% url 'core:a_propos' %}"><i class="fas fa-building"></i> À Propos</a><a href="{% url 'core:contact' %}"><i class="fas fa-envelope"></i> Contact</a></div>
+      <div class="ft-col"><h4>Services</h4><a href="#"><i class="fas fa-bolt"></i> Électricité</a><a href="#"><i class="fas fa-wrench"></i> Plomberie</a><a href="#"><i class="fas fa-hard-hat"></i> Construction</a><a href="#"><i class="fas fa-fire"></i> Soudure</a><a href="#"><i class="fas fa-paint-roller"></i> Peinture</a><a href="#"><i class="fas fa-tree"></i> Menuiserie</a></div>
+      <div class="ft-col"><h4>Contact</h4><a href="tel:+25766033033"><i class="fas fa-phone"></i> +257 66 033 033</a><a href="https://wa.me/25777869915" target="_blank"><i class="fab fa-whatsapp"></i> +257 77 869 915</a><a href="mailto:info@infinityhome.bi"><i class="fas fa-envelope"></i> info@infinityhome.bi</a><a href="#"><i class="fas fa-map-marker-alt"></i> Bujumbura, Burundi</a><a href="#"><i class="fas fa-clock"></i> Lun–Sam 7h–18h</a></div>
+    </div>
+    <div class="ft-bot"><span>&copy; 2025 Infinity Home Rewire and Construction. Tous droits réservés.</span><div class="ft-links"><a href="#">Confidentialité</a><a href="#">Conditions</a><a href="{% url 'core:contact' %}">Support</a></div></div>
+  </div>
+</footer>
+<a class="wa-fab" href="https://wa.me/25777869915?text=Bonjour%20Infinity%20Home" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<div class="wa-tip">💬 +257 77 869 915</div>
+{% endif %}
+
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+<script>
+window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('pl')?.classList.add('hid');},1400);});
+window.addEventListener('scroll',()=>{document.getElementById('scroll-top')?.classList.toggle('show',scrollY>300);});
+function openMenu(){document.getElementById('mob-menu').classList.add('open');document.body.style.overflow='hidden';}
+function closeMenu(){document.getElementById('mob-menu').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.addEventListener('click',e=>{const sb=document.getElementById('sidebar'),tb=document.getElementById('mob-btn');if(sb&&sb.classList.contains('mob')&&!sb.contains(e.target)&&tb&&!tb.contains(e.target)){sb.classList.remove('mob');}});
+{% if user.is_authenticated %}
+function checkNotifs(){fetch('/demandes/api/notif-count/').then(r=>r.json()).then(d=>{const b1=document.getElementById('notif-badge'),b2=document.getElementById('sb-nb');if(d.count>0){if(b1){b1.textContent=d.count;b1.classList.add('show');}if(b2){b2.textContent=d.count;b2.classList.add('on');}}else{if(b1)b1.classList.remove('show');if(b2)b2.classList.remove('on');}}).catch(()=>{});}
+checkNotifs();setInterval(checkNotifs,30000);
+{% endif %}
+setTimeout(()=>{document.querySelectorAll('.alert').forEach(a=>{a.style.transition='opacity .4s,transform .4s';a.style.opacity='0';a.style.transform='translateX(-10px)';setTimeout(()=>a.remove(),400);});},5000);
+</script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

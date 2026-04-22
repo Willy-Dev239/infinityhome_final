@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% block title %}Mon Profil — Infinity Home{% endblock %}
+{% block page_title %}👤 Mon Profil{% endblock %}
+{% block sb_profil %}on{% endblock %}
+{% block content %}
+<div style="max-width:640px">
+  <div style="background:linear-gradient(135deg,#080f1f,#0d1a2e,#1a56db);border-radius:18px;padding:2rem;color:#fff;display:flex;align-items:center;gap:1.3rem;margin-bottom:1.2rem;position:relative;overflow:hidden">
+    <div style="width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:1.7rem;font-weight:800;color:#fff;border:3px solid rgba(255,255,255,.25);flex-shrink:0">{{ user.first_name|first|upper|default:user.username|first|upper }}</div>
+    <div style="flex:1">
+      <div style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800">{{ user.get_full_name|default:user.username }}</div>
+      <div style="opacity:.65;font-size:.83rem;margin-top:.25rem">@{{ user.username }}</div>
+      <div style="opacity:.5;font-size:.75rem;margin-top:.2rem"><i class="fas fa-calendar"></i> Membre depuis {{ user.date_joined|date:"d/m/Y" }}</div>
+    </div>
+    <div style="text-align:right">
+      <div style="background:rgba(16,185,129,.2);border:1px solid rgba(16,185,129,.3);padding:.3rem .75rem;border-radius:20px;font-size:.75rem;font-weight:600;color:#6ee7b7;display:flex;align-items:center;gap:.4rem"><span style="width:6px;height:6px;background:#6ee7b7;border-radius:50%"></span>Actif</div>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:1rem">
+    <div class="card-t"><i class="fas fa-id-card" style="color:var(--pr)"></i> Informations personnelles</div>
+    {% for lbl,val in label_vals %}
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid #f8fafc;font-size:.875rem">
+      <span style="color:var(--mu);font-weight:500">{{ lbl }}</span>
+      <span style="font-weight:600;color:var(--dk)">{{ val|default:"—" }}</span>
+    </div>
+    {% empty %}
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid #f8fafc;font-size:.875rem"><span style="color:var(--mu)">Prénom</span><span style="font-weight:600">{{ user.first_name|default:"—" }}</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid #f8fafc;font-size:.875rem"><span style="color:var(--mu)">Nom</span><span style="font-weight:600">{{ user.last_name|default:"—" }}</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid #f8fafc;font-size:.875rem"><span style="color:var(--mu)">Email</span><span style="font-weight:600">{{ user.email|default:"—" }}</span></div>
+    {% if user.profil.telephone %}<div style="display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;font-size:.875rem"><span style="color:var(--mu)">Téléphone</span><span style="font-weight:600">{{ user.profil.telephone }}</span></div>{% endif %}
+    {% endfor %}
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+    <a href="{% url 'demandes:mes_demandes' %}" class="btn btn-primary" style="justify-content:center;padding:.85rem"><i class="fas fa-clipboard-list"></i> Mes demandes</a>
+    <a href="{% url 'demandes:chat' %}" class="btn btn-light" style="justify-content:center;padding:.85rem"><i class="fas fa-comments"></i> Groupe Chat</a>
+    <a href="https://wa.me/25777869915" target="_blank" class="btn btn-wa" style="justify-content:center;padding:.85rem"><i class="fab fa-whatsapp"></i> WhatsApp Admin</a>
+    <a href="{% url 'accounts:deconnexion' %}" class="btn btn-da" style="justify-content:center;padding:.85rem"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+  </div>
+</div>
+{% endblock %}

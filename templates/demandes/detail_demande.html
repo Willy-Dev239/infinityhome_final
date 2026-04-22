@@ -1,0 +1,219 @@
+{% extends 'base/base.html' %}
+{% block title %}Demande #{{ demande.id }} | Infinity Home{% endblock %}
+{% block page_title %}📋 Demande {{ demande.id }}{% endblock %}
+{% block sb_demandes %}on{% endblock %}
+{% block extra_css %}
+<style>
+.back-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--mu);font-size:.82rem;font-weight:600;margin-bottom:1.2rem;transition:color .18s}
+.back-link:hover{color:var(--pr)}
+.dh-card{background:linear-gradient(135deg,#1a56db,#1340b0);border-radius:18px;padding:1.5rem 1.8rem;color:#fff;display:flex;align-items:center;gap:1.3rem;margin-bottom:1.2rem;position:relative;overflow:hidden}
+.dh-card::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%)}
+.dh-ic{width:58px;height:58px;border-radius:16px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0;border:2px solid rgba(255,255,255,.2)}
+.dh-info{flex:1}
+.dh-title{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:.4rem}
+.dh-meta{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;opacity:.8;font-size:.82rem}
+/* Progression */
+.prg-steps{display:flex;align-items:center;justify-content:space-between;position:relative;padding:.5rem 0;margin:.5rem 0}
+.prg-steps::before{content:'';position:absolute;top:22px;left:8%;right:8%;height:3px;background:#e2e8f0;z-index:0;border-radius:3px}
+.prg-steps::after{content:'';position:absolute;top:22px;left:8%;height:3px;background:linear-gradient(90deg,#1a56db,#7c3aed);z-index:1;border-radius:3px;transition:width .5s;
+  width:{% if demande.statut == 'en_attente' %}0{% elif demande.statut == 'assignee' %}28%{% elif demande.statut == 'en_cours' %}62%{% elif demande.statut == 'terminee' %}84%{% else %}0{% endif %};}
+.ps{text-align:center;position:relative;z-index:2;flex:1}
+.ps-dot{width:44px;height:44px;border-radius:50%;margin:0 auto .5rem;display:flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:700;transition:all .3s}
+.ps-dot.done{background:linear-gradient(135deg,#10b981,#059669);color:#fff;box-shadow:0 4px 12px rgba(16,185,129,.3)}
+.ps-dot.curr{background:linear-gradient(135deg,var(--pr),#2563eb);color:#fff;box-shadow:0 4px 12px rgba(26,86,219,.35);animation:pd 2s ease infinite}
+@keyframes pd{0%,100%{box-shadow:0 4px 12px rgba(26,86,219,.35)}50%{box-shadow:0 4px 20px rgba(26,86,219,.6),0 0 0 6px rgba(26,86,219,.1)}}
+.ps-dot.todo{background:#f1f5f9;color:#94a3b8;border:2px solid #e2e8f0}
+.ps-lbl{font-size:.7rem;font-weight:600;color:var(--mu)}.ps-lbl.curr{color:var(--pr);font-weight:700}.ps-lbl.done{color:#10b981;font-weight:700}
+/* Technicien card */
+.tech-card{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;border-radius:14px;padding:1.2rem;display:flex;align-items:center;gap:1rem}
+.tech-av{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--pr),#2563eb);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;font-weight:800;flex-shrink:0}
+/* Info rows */
+.ir{display:flex;justify-content:space-between;align-items:flex-start;padding:.7rem 0;border-bottom:1px solid #f8fafc;font-size:.875rem}
+.ir:last-child{border-bottom:none}
+.ir-lbl{color:var(--mu);font-weight:500;flex-shrink:0;margin-right:1rem}
+.ir-val{font-weight:600;text-align:right;color:var(--dk)}
+/* Paiement */
+.pm-card{border:2px solid var(--bd);border-radius:14px;padding:1.2rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:.9rem;margin-bottom:.7rem}
+.pm-card:hover{border-color:var(--pr);background:var(--prl)}
+.pm-card.sel{border-color:var(--pr);background:var(--prl)}
+.pm-ic{width:44px;height:44px;border-radius:10px;background:#e0e7ff;display:flex;align-items:center;justify-content:center;color:var(--pr);font-size:1.1rem;flex-shrink:0;transition:all .2s}
+.pm-card.sel .pm-ic{background:var(--pr);color:#fff}
+.pm-radio{width:18px;height:18px;border-radius:50%;border:2px solid #cbd5e1;margin-left:auto;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.pm-card.sel .pm-radio{border-color:var(--pr)}
+.pm-dot{width:9px;height:9px;border-radius:50%;background:var(--pr);display:none}
+.pm-card.sel .pm-dot{display:block}
+</style>
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'demandes:mes_demandes' %}" class="back-link"><i class="fas fa-arrow-left"></i> Mes demandes</a>
+
+<!-- En-tête -->
+<div class="dh-card">
+  <div class="dh-ic">{% if demande.type_travaux == 'electricite' %}⚡{% elif demande.type_travaux == 'plomberie' %}🔧{% elif demande.type_travaux == 'construction' %}🏗️{% elif demande.type_travaux == 'soudure' %}🔩{% elif demande.type_travaux == 'peinture' %}🎨{% else %}🪚{% endif %}</div>
+  <div class="dh-info">
+    <div class="dh-title">{{ demande.titre }}</div>
+    <div class="dh-meta">
+      <span><i class="fas fa-hashtag"></i> #{{ demande.id }}</span>
+      <span><i class="fas fa-map-marker-alt"></i> {{ demande.localite }}</span>
+      <span><i class="fas fa-calendar"></i> {{ demande.date_creation|date:"d/m/Y" }}</span>
+    </div>
+  </div>
+  <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:.5rem">
+    <span class="bs {% if demande.statut == 'en_attente' %}bs-wa{% elif demande.statut == 'assignee' %}bs-bl{% elif demande.statut == 'en_cours' %}bs-ok{% elif demande.statut == 'terminee' %}bs-ok{% else %}bs-re{% endif %}" style="font-size:.78rem">{{ demande.get_statut_display }}</span>
+    {% if demande.urgence == 'critique' %}<span class="bs bs-re">🔴 Critique</span>{% elif demande.urgence == 'urgente' %}<span class="bs bs-wa">🟡 Urgent</span>{% endif %}
+  </div>
+</div>
+
+<!-- Progression -->
+<div class="card" style="margin-bottom:1.2rem">
+  <div class="card-t"><span>Suivi de l'intervention</span></div>
+  <div class="prg-steps">
+    {% for st,lb in demande.statut %}{% if st != 'annulee' %}
+    <div class="ps">
+      <div class="ps-dot {% if demande.statut == st %}curr{% elif demande.statut == 'terminee' or demande.statut == 'en_cours' and st in 'en_attente assignee' or demande.statut == 'assignee' and st == 'en_attente' %}done{% else %}todo{% endif %}">
+        {% if demande.statut == 'terminee' or demande.statut == 'en_cours' and st in 'en_attente assignee' or demande.statut == 'assignee' and st == 'en_attente' %}<i class="fas fa-check"></i>{% else %}{% if st == 'en_attente' %}1{% elif st == 'assignee' %}2{% elif st == 'en_cours' %}3{% else %}4{% endif %}{% endif %}
+      </div>
+      <div class="ps-lbl {% if demande.statut == st %}curr{% elif demande.statut == 'terminee' %}done{% endif %}">{{ lb }}</div>
+    </div>
+    {% endif %}{% endfor %}
+  </div>
+</div>
+
+<!-- Technicien ou en attente -->
+{% if demande.technicien %}
+<div class="card" style="margin-bottom:1.2rem;border-color:#86efac;background:linear-gradient(135deg,#f0fdf4,#fff)">
+  <div class="card-t" style="color:#15803d"><i class="fas fa-hard-hat"></i> Technicien assigné</div>
+  <div class="tech-card">
+    <div class="tech-av">{{ demande.technicien.prenom|first }}{{ demande.technicien.nom|first }}</div>
+    <div style="flex:1">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;color:var(--dk)">{{ demande.technicien.nom_complet }}</div>
+      <div style="font-size:.8rem;color:var(--mu);margin-top:2px">{{ demande.technicien.get_specialite_display }} · {{ demande.technicien.experience }} ans d'expérience</div>
+      <div style="display:flex;gap:.5rem;margin-top:.6rem;flex-wrap:wrap">
+        <a href="tel:{{ demande.technicien.telephone }}" class="btn btn-su btn-sm"><i class="fas fa-phone"></i> {{ demande.technicien.telephone }}</a>
+        <a href="https://wa.me/{{ demande.technicien.telephone|slice:'1:' }}" target="_blank" class="btn btn-wa btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  {% if demande.date_intervention %}
+  <div style="margin-top:.9rem;background:#fff;border-radius:10px;padding:.7rem 1rem;display:flex;align-items:center;gap:.6rem;font-size:.85rem;border:1px solid #bbf7d0">
+    <i class="fas fa-calendar-check" style="color:#16a34a"></i> <strong>Intervention prévue :</strong> {{ demande.date_intervention|date:"d/m/Y" }}
+  </div>
+  {% endif %}
+</div>
+{% else %}
+<div style="background:#fffbeb;border:1.5px dashed #fde68a;border-radius:14px;padding:1.5rem;text-align:center;margin-bottom:1.2rem">
+  <div style="font-size:2.5rem;margin-bottom:.6rem">⏳</div>
+  <div style="font-weight:700;color:#92400e;font-size:.9rem">En attente d'assignation</div>
+  <div style="color:#d97706;font-size:.82rem;margin-top:.3rem">Un technicien sera assigné très prochainement.</div>
+</div>
+{% endif %}
+
+<!-- Détails -->
+<div class="card" style="margin-bottom:1.2rem">
+  <div class="card-t">Détails de la demande</div>
+  <div class="ir"><span class="ir-lbl">Type de travaux</span><span class="ir-val">{{ demande.get_type_travaux_display }}</span></div>
+  <div class="ir"><span class="ir-lbl">Localité</span><span class="ir-val">{{ demande.localite }}</span></div>
+  <div class="ir"><span class="ir-lbl">Adresse</span><span class="ir-val">{{ demande.adresse }}</span></div>
+  <div class="ir"><span class="ir-lbl">Date de soumission</span><span class="ir-val">{{ demande.date_creation|date:"d/m/Y à H:i" }}</span></div>
+  <div style="margin-top:.9rem;background:#f8fafc;border-radius:10px;padding:.9rem 1rem;font-size:.875rem;line-height:1.6;color:var(--tx)">
+    <div style="font-size:.7rem;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.5px;margin-bottom:.4rem">Description</div>
+    {{ demande.description }}
+  </div>
+  {% if demande.photo %}
+  <div style="margin-top:.9rem"><img src="{{ demande.photo.url }}" style="width:100%;max-height:280px;object-fit:cover;border-radius:12px;border:1px solid var(--bd)"></div>
+  {% endif %}
+</div>
+
+{% if demande.notes_admin %}
+<div class="card" style="margin-bottom:1.2rem;border-color:rgba(26,86,219,.25);background:#eff6ff">
+  <div class="card-t" style="color:var(--pr)"><i class="fas fa-comment-dots"></i> Message de l'admin</div>
+  <div style="font-size:.88rem;line-height:1.6">{{ demande.notes_admin }}</div>
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div style="display:flex;gap:.8rem;flex-wrap:wrap">
+  <button onclick="openModal('m-pay')" class="btn btn-primary" style="flex:1;justify-content:center"><i class="fas fa-credit-card"></i> Paiement</button>
+  <a href="{% url 'demandes:chat' %}" class="btn btn-light" style="flex:1;justify-content:center"><i class="fas fa-comments"></i> Groupe Chat</a>
+  <a href="https://wa.me/25777869915?text=Bonjour%2C%20demande%20%23{{ demande.id }}" target="_blank" class="btn btn-wa" style="flex:1;justify-content:center"><i class="fab fa-whatsapp"></i> WhatsApp Admin</a>
+</div>
+
+<!-- ══ MODAL PAIEMENT ══ -->
+<div class="modal-ov" id="m-pay">
+  <div class="modal">
+    <div class="mh">
+      <div class="mh-ic gr"><i class="fas fa-credit-card" style="color:#16a34a"></i></div>
+      <div class="mh-tx"><div class="mh-t">Mode de paiement</div><div class="mh-s">Demande #{{ demande.id }} · {{ demande.titre }}</div></div>
+      <button class="mc" onclick="closeModal('m-pay')">×</button>
+    </div>
+    <div class="mb">
+      <div class="pm-card sel" onclick="selPay('mobile',this)">
+        <div class="pm-ic"><i class="fas fa-mobile-alt"></i></div>
+        <div><div style="font-weight:700;font-size:.88rem">Mobile Money</div><div style="font-size:.75rem;color:var(--mu)">Lumicash, EcoCash, Mobicash</div></div>
+        <div class="pm-radio"><div class="pm-dot"></div></div>
+      </div>
+      <div class="pm-card" onclick="selPay('virement',this)">
+        <div class="pm-ic"><i class="fas fa-university"></i></div>
+        <div><div style="font-weight:700;font-size:.88rem">Virement bancaire</div><div style="font-size:.75rem;color:var(--mu)">CECAD, BCB, CRDB, FBNBANK...</div></div>
+        <div class="pm-radio"><div class="pm-dot"></div></div>
+      </div>
+      <div class="pm-card" onclick="selPay('especes',this)">
+        <div class="pm-ic"><i class="fas fa-hand-holding-usd"></i></div>
+        <div><div style="font-weight:700;font-size:.88rem">Espèces</div><div style="font-size:.75rem;color:var(--mu)">Paiement au technicien en main propre</div></div>
+        <div class="pm-radio"><div class="pm-dot"></div></div>
+      </div>
+      <div id="pm-details" style="margin-top:.9rem;display:none">
+        <div class="fg"><label>Montant (BIF) *</label><input type="number" id="pm-mnt" placeholder="Ex: 50000"></div>
+        <div class="fg"><label>Référence / N° transaction</label><input id="pm-ref" placeholder="Optionnel"></div>
+        <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:.8rem 1rem;font-size:.82rem;color:var(--pr)"><i class="fas fa-info-circle"></i> Un reçu vous sera envoyé après validation par l'admin.</div>
+      </div>
+    </div>
+    <div class="mf">
+      <button class="btn btn-light" onclick="closeModal('m-pay')">Fermer</button>
+      <button class="btn btn-primary" id="pm-btn" onclick="submitPay()"><i class="fas fa-check"></i> Confirmer</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MODAL PHOTO ══ -->
+<div class="modal-ov" id="m-photo">
+  <div class="modal modal-sm">
+    <div class="mh">
+      <div class="mh-ic yw"><i class="fas fa-camera" style="color:#d97706"></i></div>
+      <div class="mh-tx"><div class="mh-t">Ajouter une photo</div><div class="mh-s">Photo complémentaire pour le technicien</div></div>
+      <button class="mc" onclick="closeModal('m-photo')">×</button>
+    </div>
+    <div class="mb">
+      <div class="fg"><label>Photo *</label><input type="file" accept="image/*"></div>
+      <div class="fg"><label>Description</label><input placeholder="Ex: Zone concernée, détail du problème..."></div>
+    </div>
+    <div class="mf">
+      <button class="btn btn-light" onclick="closeModal('m-photo')">Annuler</button>
+      <button class="btn btn-primary"><i class="fas fa-upload"></i> Envoyer</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function openModal(id){document.getElementById(id).classList.add('open');}
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+document.querySelectorAll('.modal-ov').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open');}));
+
+function selPay(v,el){
+  document.querySelectorAll('.pm-card').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  const d=document.getElementById('pm-details');
+  d.style.display=v!=='especes'?'block':'none';
+}
+
+function submitPay(){
+  const mnt=document.getElementById('pm-mnt')?.value;
+  if(!mnt){alert('Veuillez saisir le montant.');return;}
+  alert('✅ Paiement soumis ! L\'admin le validera sous 24h.');
+  closeModal('m-pay');
+}
+</script>
+{% endblock %}
