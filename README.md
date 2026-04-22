@@ -7,9 +7,9 @@
 
 ### 1. Créer la base MySQL
 ```sql
-CREATE DATABASE infinity_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'infinity'@'localhost' IDENTIFIED BY 'VotreMotDePasse';
-GRANT ALL PRIVILEGES ON infinity_db.* TO 'infinity'@'localhost';
+CREATE DATABASE infinityhome_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'infinity'@'localhost' IDENTIFIED BY 'infinity123';
+GRANT ALL PRIVILEGES ON infinityhome_db.* TO 'infinity'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
