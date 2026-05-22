@@ -66,7 +66,7 @@
 </div>
 
 <!-- Progression -->
-<div class="card" style="margin-bottom:1.2rem">
+{% comment %} <div class="card" style="margin-bottom:1.2rem">
   <div class="card-t"><span>Suivi de l'intervention</span></div>
   <div class="prg-steps">
     {% for st,lb in demande.statut %}{% if st != 'annulee' %}
@@ -78,7 +78,7 @@
     </div>
     {% endif %}{% endfor %}
   </div>
-</div>
+</div> {% endcomment %}
 
 <!-- Technicien ou en attente -->
 {% if demande.technicien %}
@@ -89,10 +89,10 @@
     <div style="flex:1">
       <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;color:var(--dk)">{{ demande.technicien.nom_complet }}</div>
       <div style="font-size:.8rem;color:var(--mu);margin-top:2px">{{ demande.technicien.get_specialite_display }} · {{ demande.technicien.experience }} ans d'expérience</div>
-      <div style="display:flex;gap:.5rem;margin-top:.6rem;flex-wrap:wrap">
+      {% comment %} <div style="display:flex;gap:.5rem;margin-top:.6rem;flex-wrap:wrap">
         <a href="tel:{{ demande.technicien.telephone }}" class="btn btn-su btn-sm"><i class="fas fa-phone"></i> {{ demande.technicien.telephone }}</a>
         <a href="https://wa.me/{{ demande.technicien.telephone|slice:'1:' }}" target="_blank" class="btn btn-wa btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-      </div>
+      </div> {% endcomment %}
     </div>
   </div>
   {% if demande.date_intervention %}
