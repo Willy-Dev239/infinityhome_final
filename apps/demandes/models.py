@@ -23,7 +23,7 @@ TYPES_TRAVAUX = [
     ('construction', 'Construction'),
     ('soudure',      'Soudure'),
     ('peinture',     'Peinture'),
-    ('menuiserie',   'Menuiserie'),
+    ('menuiserie',   'Menuiserie'),('camera_surveillance',   'camera_surveillance'),
     ('autre',        'Autre'),
 ]
 
