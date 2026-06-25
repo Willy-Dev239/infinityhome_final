@@ -2,6 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from apps.techniciens.models import Technicien
+from pyuploadcare.dj.models import ImageField as UploadcareImageField
 
 STATUTS = [
     ('en_attente',   'En attente'),
@@ -37,7 +38,7 @@ class Demande(models.Model):
     urgence     = models.CharField(max_length=20, choices=URGENCES, default='normale')
     statut      = models.CharField(max_length=20, choices=STATUTS, default='en_attente')
     technicien  = models.ForeignKey(Technicien, on_delete=models.SET_NULL, null=True, blank=True, related_name='demandes')
-    photo       = models.ImageField(upload_to='demandes/', blank=True, null=True)
+    photo = UploadcareImageField(blank=True, null=True, manual_crop='')
     notes_admin = models.TextField(blank=True)
     date_creation = models.DateTimeField(auto_now_add=True)
     date_modification = models.DateTimeField(auto_now=True)

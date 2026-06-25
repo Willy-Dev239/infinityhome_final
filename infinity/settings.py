@@ -112,7 +112,7 @@ AUTHENTICATION_BACKENDS = [
 # ✅ UPLOADCARE
 UPLOADCARE = {
     'pub_key': os.environ.get('UPLOADCARE_PUBLIC_KEY', '2bec84ffe9ef07b7a434'),
-    'secret': os.environ.get('UPLOADCARE_SECRET_KEY', ''),
+    'secret': os.environ.get('UPLOADCARE_SECRET_KEY', '56bb8aeebe4146f05121'),
 }
 
 # Media files via Uploadcare en production
