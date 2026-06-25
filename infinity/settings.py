@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'apps.demandes',
     'apps.techniciens',
     'apps.dashboard',
+     'pyuploadcare.dj',
 ]
 
 MIDDLEWARE = [
@@ -107,3 +108,13 @@ SESSION_SAVE_EVERY_REQUEST = True
 AUTHENTICATION_BACKENDS = [
     'apps.accounts.backends.MultiSessionBackend',
 ]
+
+# ✅ UPLOADCARE
+UPLOADCARE = {
+    'pub_key': os.environ.get('UPLOADCARE_PUBLIC_KEY', '2bec84ffe9ef07b7a434'),
+    'secret': os.environ.get('UPLOADCARE_SECRET_KEY', ''),
+}
+
+# Media files via Uploadcare en production
+if os.environ.get('DATABASE_URL'):
+    DEFAULT_FILE_STORAGE = 'pyuploadcare.dj.storage.UploadcareStorage'
