@@ -1,0 +1,2140 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-03-18T08:57:28.725Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "63253834a07d14a6a4d78999ee0bd1b2054e0f70",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Localité : Kinanira 2",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Localité : Rohero, Bujumbura",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 3,
+  "fields": {
+    "name": "Localité : Ngagara Q7",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$igFqPdSqreiVhsJqvZBw2d$IvPFXiVAsxvrFva0weXb3sBEVIxAxUXlokaFpe8Xl/g=",
+    "last_login": "2026-06-24T10:09:34.585Z",
+    "is_superuser": true,
+    "username": "Support",
+    "first_name": "",
+    "last_name": "",
+    "email": "support@infinity.bi",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-03-05T13:29:37.685Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$H0JXFE0eOvRiZtrf9rYMCI$QbwT+53HpEBPAjpen9oEmtx/bcwzqejPwYqSJuJmu9o=",
+    "last_login": "2026-06-24T10:06:49.055Z",
+    "is_superuser": false,
+    "username": "Kenguruka",
+    "first_name": "Donella",
+    "last_name": "Kenguruka",
+    "email": "donella@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-05T17:22:10.177Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$cGPdJMJwfLU49PUnKEaQsI$uG7EZxqauPJ/TfJH7WfWiw0XQCflMKtD+T9wsJf41Hc=",
+    "last_login": "2026-03-11T17:25:31.265Z",
+    "is_superuser": false,
+    "username": "claudine.kimana",
+    "first_name": "Claudine",
+    "last_name": "Kimana",
+    "email": "claudine@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-07T06:55:55.919Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$dMHpO9rcjW4jUT6sPNtDb9$8uajPuLjxwpvZ6lqJJMr3y/3xinS5g3w9rw3tdNqoLE=",
+    "last_login": "2026-03-13T17:10:42.109Z",
+    "is_superuser": false,
+    "username": "Admin",
+    "first_name": "Kamina",
+    "last_name": "Kimana",
+    "email": "leon@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-08T11:49:28.428Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$VbTE3Y6hSHOUXfChfSgwLq$YBeERL5q8xZkNT1zI+Y6XuQA3UpPXI218HJQzEJACt8=",
+    "last_login": "2026-04-03T14:12:50.309Z",
+    "is_superuser": false,
+    "username": "claude",
+    "first_name": "Claude",
+    "last_name": "Karikurubu",
+    "email": "claude@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-10T18:05:48.970Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$xP4onnlmXCgEDtQ4lrVnSu$dnoz3z1Fa74Ek4InAO5nVFUBdjfRDJw0oT9KIe71BYA=",
+    "last_login": "2026-03-18T09:05:03.320Z",
+    "is_superuser": false,
+    "username": "louis",
+    "first_name": "Louis",
+    "last_name": "Uwimana",
+    "email": "louis@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-18T09:04:21.982Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$oR3UwV1tJDYtRAhRkWE6vH$YZFf+w/5SslcC5qe8d0CepIXia/9IDY0jF5BXy1GIIY=",
+    "last_login": "2026-03-23T17:07:48.091Z",
+    "is_superuser": false,
+    "username": "Kigingi",
+    "first_name": "Kigingi",
+    "last_name": "Raoul",
+    "email": "raoul@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-23T17:07:24.742Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$NxIAPUXUJWgD6UsXUFmjjz$g69EgtoboS1oUR/gFouZ+b8fFWg41JR2Y1Y4gn3dwDc=",
+    "last_login": "2026-04-18T09:06:58.419Z",
+    "is_superuser": true,
+    "username": "Support@inf.pro",
+    "first_name": "",
+    "last_name": "",
+    "email": "Support@infinityhome.pro",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-04-17T08:44:30.401Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$mijsfPPcst8xAqqvwkfDK7$OMIjI/XGCR0XswZ43sWrc3THMaIEJqXWJij+uA6957Y=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Raoul",
+    "first_name": "Elie",
+    "last_name": "Raoul",
+    "email": "leon@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-17T13:02:16.521Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$Y5Uzci6yqPwNLotSToBhxj$8FywNyCgEECxs7PQxjUqxOxVthcTwmBcto1dWIymp4o=",
+    "last_login": "2026-04-29T09:23:53.108Z",
+    "is_superuser": false,
+    "username": "claudeIranzi",
+    "first_name": "Kanyana",
+    "last_name": "Jean",
+    "email": "kenguruka@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-17T13:18:13.441Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$OQIpCaJaZupUFHJBhZqr9M$szIZsTtnILrMAp++IM7+SGpPbRGeqNsI1Fiot1oCaWU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Marc",
+    "first_name": "Marie",
+    "last_name": "Iteka",
+    "email": "iteka@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-17T13:23:15.701Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$hTgrge0uDOxnaUxj3SNhuj$SAP45LnMR4frs+dl0wv/B83vpMFA78I69I2f6fXixfU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Leonard",
+    "first_name": "Kigingi",
+    "last_name": "Raoul",
+    "email": "deo@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-17T13:33:41.532Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$RMJEcaxzdy9NpH67ux1t24$uSFdvCg6py79Bwgo+gsI1Lu79RCYBUjb37aHmbO20zc=",
+    "last_login": "2026-04-21T08:43:18.923Z",
+    "is_superuser": false,
+    "username": "Dusenge",
+    "first_name": "Diella",
+    "last_name": "Dusenge",
+    "email": "duseng@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-20T09:25:07.554Z",
+    "groups": [
+      3
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$JTacFTRMK5Tmz5TISXdBmY$aOeK+qLUU7/YfyZNzZpvgX4Yr9n7GsxEaK7sn1i/Px4=",
+    "last_login": "2026-04-21T12:20:04.263Z",
+    "is_superuser": true,
+    "username": "Support@infinity.bi",
+    "first_name": "",
+    "last_name": "",
+    "email": "support@inf.bi",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-04-20T09:54:11.371Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1jd44bw9c6bvtpj49bvcfexaoj7mp377",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGlmxHTs_lPQ5Q_Q34wBKpCwV4u7IUgpo38y8txnx2Mt4bLqOk5irca25_I6E_NS5EnngfF8sL_O-TmSrYk-62WERfd1O9--g4FZqHYOEkH2DLjWaHUBgBnDiSdD3Cpp6zV1MsekJJHgOmZiEWsogXTafLxI_OQI:1wF763:ZGnLPVg9IHQCsmrnZy51BVbBOQCE2EJoGwr3Bf8oQ_g",
+    "expire_date": "2026-05-05T09:08:43.274Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1mnx7vxrmxgmaj20n8qzawcrdci5bdt1",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlnrv5eSnjNY609wANlSnFSIu0OkFNC-mXkvFmhba9hGWcKc2ZkZdvrdIqVHaTvId2q3zlNv6zJHviv8oINfey7Py-H-HVQa9Vv7SSXrSbmE0mlCaaUHC84V0kb7PAGCQSUyGhuFwGgzCcCIHsA7BPb-ALTPNj4:1w8fGU:ngzZgbHPnIzTD2BajkTMBgUPotrPZYPiWKKr6AhDz8U",
+    "expire_date": "2026-04-17T14:12:50.464Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "63c0wt99bcbz9elwhskwqx77p9dgrfjv",
+  "fields": {
+    "session_data": ".eJxVjDEOwjAMRe-SGVWO26YOIzsTB6icOCgRqK1wMiHuDkgdYH3__fc0M7ea56bpMRcxR2PN4ZcFjre0fAfeNu04xrUtVbuda3du91ouSbWsy2mX_wqZNX_uCb2bRHoYBK_JT94h-wBOAEBGsiQoFhMjDSPGHjwQEXKwgTjI5MzrDTd8OAw:1wQPkU:gHMeNUL-8OGT9Gh1f5g1F3b7S8KWzFVwTSDFjciP0EM",
+    "expire_date": "2026-06-21T13:17:10.532Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8gao6nytmhnd6g3okuzwmqivf95ofduk",
+  "fields": {
+    "session_data": "e30:1w3ClI:0QN6e3QArbD4jNT1A8XuMrtnGgde5w4foZkzYPdg038",
+    "expire_date": "2026-04-02T12:46:04.388Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "bw0zodufjxng3laztkn04ils0jqf9kas",
+  "fields": {
+    "session_data": ".eJxVjDEOwjAMRe-SGVVJcZqUkZ2JA0SO7SoRqK1wMyHuDkgdYH3__fc0CdtWUlN5pMrmZJw5_LKMdJP5O-C6aodES5s37Xau3aXdt3oV1brM513-KxTU8rl7mkJ2HoKzkD1xtOMQYJTIwWGMEoCidUg8HTOzAHjvhl4Y-sEHy2Jeb0HMOHw:1wcKYH:OGOPTsms_fDSuMGZhANu032IrV-LQDDbc38QmXps-Dk",
+    "expire_date": "2026-07-24T10:09:49.958Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "f5mjow66ybb7h54l0oik52z7ec2zxplp",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCglCku3XsGMjCDVA0kpV0Z765NutDtf-_9lwi4rSVsnZcwkzgLI06_W8T04LoDumO9NZlaXZc5yl2RB-3y2oifl8P9OyjYy7ceOWtUZjDgACZLzoLlqBV7nzQbIK1G9JSdURMNlj2ABpWJskWwWon3B8O0Nxo:1vyUrZ:f7eGF_dkGJH76-07ecxusSEgUaBKpiVqPe4zXtjZfgY",
+    "expire_date": "2026-03-20T13:05:05.037Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "gb94zsovf56mpq2pcj0mwzh3y1i2y8gj",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGlmxHTs_lPQ5Q_Q34wBKpCwV4u7IUgpo38y8txnx2Mt4bLqOk5irca25_I6E_NS5EnngfF8sL_O-TmSrYk-62WERfd1O9--g4FZqHYOEkH2DLjWaHUBgBnDiSdD3Cpp6zV1MsekJJHgOmZiEWsogXTafLxI_OQI:1wEoUY:sYI2KHR_dj9npUk5Q0zK4ilmkrHP-deZd9tdMBBMAXA",
+    "expire_date": "2026-05-04T13:16:46.995Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hig02ipg55m6asyu74irz2t3xxufo0gv",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSG8ZVy67zeQYQCpGkhKuzL-uzbpQrf3nHNfLOC21rCNvIQ5sQvz7PS7RaRHbjtId2y3zqm3dZkj3xV-0MGnnvLzerh_BxVH_dYOnCsQAaw5C4vFCGeIlAYCFUFLa0sELxMpK1102kptDBnvJQpCAPb-ALneNqE:1wE1dj:QBSMe6i1TWfrfpb2ns_A7sw30bLvVJ-EzhEuuNM8bv0",
+    "expire_date": "2026-05-02T09:06:59.635Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "m4ewn6h7dlb57evjfsmnj3f3uwgqm6va",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyFCAbcevfcbmmV3kaqBpLQn47_bJj3oHOe9mbcacV3yuDaZx4nVVRl1-u0i0lPKDviB5V411bLMU9S7og_a9FBZXrfD_TvI2PK2xuhtIO7EAroojMGgJWDjrQfw_Zm3CDmQBEzkyLkAYPqUYpcuntTnCwsKOQE:1wAt5k:USwRO-7aktofc7EBDnkTmltLKF0SWcJZlbuPFBq9otQ",
+    "expire_date": "2026-04-23T17:22:56.635Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "o7znbs5u8nl19mh374uqego8xuvear5s",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyFCAbcevfcbmmV3kaqBpLQn47_bJj3oHOe9mbcacV3yuDaZx4nVVRl1-u0i0lPKDviB5V411bLMU9S7og_a9FBZXrfD_TvI2PK2xuhtIO7EAroojMGgJWDjrQfw_Zm3CDmQBEzkyLkAYPqUYpcuntTnCwsKOQE:1w16Lp:qjzc3vAXjL0vmVWE3b1Bq7WEBr_XZlNK2t8cdxpPPxQ",
+    "expire_date": "2026-03-27T17:31:05.947Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ptdfkppkrrca9pc08kjza7qmfnbu8h4r",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGlmxHTs_lPQ5Q_Q34wBKpCwV4u7IUgpo38y8txnx2Mt4bLqOk5irca25_I6E_NS5EnngfF8sL_O-TmSrYk-62WERfd1O9--g4FZqHYOEkH2DLjWaHUBgBnDiSdD3Cpp6zV1MsekJJHgOmZiEWsogXTafLxI_OQI:1wEnri:zg1ihzebhkr7v9OAokSxOJ7Mfl9l7WJBdbTUqmGvwdM",
+    "expire_date": "2026-05-04T12:36:38.305Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qw6vuwbtsfsuvh40ag10q7e5f0r64nmc",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyFCAbcevfcbmmV3kaqBpLQn47_bJj3oHOe9mbcacV3yuDaZx4nVVRl1-u0i0lPKDviB5V411bLMU9S7og_a9FBZXrfD_TvI2PK2xuhtIO7EAroojMGgJWDjrQfw_Zm3CDmQBEzkyLkAYPqUYpcuntTnCwsKOQE:1w023P:l2tAHCLjYGUI8143UboFpomj0JOvGQ87VGoMvIOwUlc",
+    "expire_date": "2026-03-24T18:43:39.665Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "vl4qfv4i7uvjpevhg5nwvyacy04iliol",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGlmxHTs_lPQ5Q_Q34wBKpCwV4u7IUgpo38y8txnx2Mt4bLqOk5irca25_I6E_NS5EnngfF8sL_O-TmSrYk-62WERfd1O9--g4FZqHYOEkH2DLjWaHUBgBnDiSdD3Cpp6zV1MsekJJHgOmZiEWsogXTafLxI_OQI:1wFA5E:xY-1s6zWoJ4k2WWBFToZgCE5zSdDmPqkTwXWv6Ri-GM",
+    "expire_date": "2026-05-05T12:20:04.626Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zk0x81cemyrx3ajk010ycazewkbmnv7f",
+  "fields": {
+    "session_data": ".eJxVjL0OwiAURt-F2RAoUC6O7k4-AOHnEoimbXphMr67mnTQ9XznO0_mw-jVD8Ldt8zOTLLTL4sh3XH5DmHbiIeU1rF04gcnfh2P3m5I1Nblcsh_hRqofu4xzm6CiNLlLJwqysxowbpQtDXCqGIn0CCKgJwVSG3AoY2yiIgmGY3s9QY9DDg1:1wLkps:jQ6woerKKV6BXcBeO7bICC7lRqrHgJ-5qdjReZXKJlQ",
+    "expire_date": "2026-06-08T16:47:28.632Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zp3og8j16sntmw4sfkfhw3k4vza1cvjj",
+  "fields": {
+    "session_data": ".eJxVjEsOwjAMBe-SNYpcmTgJS_acoXJihxRQKvWzqrg7VOoCtm9m3mZ6Xpfar7NO_SDmYjo0p98xcX5q24k8uN1Hm8e2TEOyu2IPOtvbKPq6Hu7fQeW5fmsPEl3qAhTnVTGDuOAoUCSSmIFVfYGSlVxJ58yBhKOPhOgBAwKa9wcG7zfG:1wEnjM:Xfzzw0Pg2BeIund9k3dktRTJhTzaAjLJUV4CFIRPIC0",
+    "expire_date": "2026-05-04T12:28:00.279Z"
+  }
+},
+{
+  "model": "accounts.profil",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "telephone": "67880095",
+    "adresse": "",
+    "localite": "Ngagara Q6",
+    "photo": "",
+    "date_naissance": null
+  }
+},
+{
+  "model": "accounts.profil",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "telephone": "67880095",
+    "adresse": "",
+    "localite": "Kigobe Nord",
+    "photo": "",
+    "date_naissance": null
+  }
+},
+{
+  "model": "accounts.profil",
+  "pk": 3,
+  "fields": {
+    "user": 4,
+    "telephone": "67880095",
+    "adresse": "",
+    "localite": "Kigobe Nord",
+    "photo": "",
+    "date_naissance": null
+  }
+},
+{
+  "model": "accounts.profil",
+  "pk": 4,
+  "fields": {
+    "user": 5,
+    "telephone": "67880095",
+    "adresse": "",
+    "localite": "Rohero, Bujumbura",
+    "photo": "",
+    "date_naissance": null
+  }
+},
+{
+  "model": "accounts.profil",
+  "pk": 87,
+  "fields": {
+    "user": 6,
+    "telephone": "+25762535103",
+    "adresse": "",
+    "localite": "Kinanira 2",
+    "photo": "",
+    "date_naissance": null
+  }
+},
+{
+  "model": "accounts.profil",
+  "pk": 88,
+  "fields": {
+    "user": 7,
+    "telephone": "67880095",
+    "adresse": "",
+    "localite": "Rohero, Bujumbura",
+    "photo": "",
+    "date_naissance": null
+  }
+},
+{
+  "model": "accounts.profil",
+  "pk": 89,
+  "fields": {
+    "user": 13,
+    "telephone": "223456577",
+    "adresse": "",
+    "localite": "Ngagara Q7",
+    "photo": "",
+    "date_naissance": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 1,
+  "fields": {
+    "client": 2,
+    "type_travaux": "electricite",
+    "titre": "Inzu yahiye nshaka munfashe kuzimya",
+    "description": "Inzu yahiye nshaka munfashe kuzimya",
+    "localite": "Ngagara Q6",
+    "adresse": "Ngagara Q6",
+    "urgence": "normale",
+    "statut": "terminee",
+    "technicien": 1,
+    "photo": "",
+    "notes_admin": "",
+    "date_creation": "2026-03-05T18:32:58.170Z",
+    "date_modification": "2026-03-06T12:58:42.727Z",
+    "date_intervention": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 2,
+  "fields": {
+    "client": 2,
+    "type_travaux": "construction",
+    "titre": "Nshaka munyubakire inzu yanje, yarabomotse",
+    "description": "Nshaka munyubakire inzu yanje",
+    "localite": "Ngagara Q6",
+    "adresse": "Ngagara Q6",
+    "urgence": "normale",
+    "statut": "terminee",
+    "technicien": 2,
+    "photo": "",
+    "notes_admin": "",
+    "date_creation": "2026-03-05T18:35:40.108Z",
+    "date_modification": "2026-03-06T12:59:41.065Z",
+    "date_intervention": "2026-03-06"
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 3,
+  "fields": {
+    "client": 3,
+    "type_travaux": "construction",
+    "titre": "Nshaka munyubakire inzu yanje, yarabomotse",
+    "description": "Nshaka munyubakire inzu yanje, yarabomotse",
+    "localite": "Kinanira 4",
+    "adresse": "Avenue Mwezi",
+    "urgence": "normale",
+    "statut": "terminee",
+    "technicien": 2,
+    "photo": "demandes/TpSp.png",
+    "notes_admin": "",
+    "date_creation": "2026-03-07T06:58:42.193Z",
+    "date_modification": "2026-03-08T12:07:04.191Z",
+    "date_intervention": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 4,
+  "fields": {
+    "client": 4,
+    "type_travaux": "peinture",
+    "titre": "Muzoze gunsigire inzu yanje",
+    "description": "Muzoze gunsigire inzu yanje",
+    "localite": "Rohero, Bujumbura",
+    "adresse": "Avenue muyinga No 12",
+    "urgence": "normale",
+    "statut": "terminee",
+    "technicien": 5,
+    "photo": "",
+    "notes_admin": "",
+    "date_creation": "2026-03-08T11:51:33.058Z",
+    "date_modification": "2026-03-10T07:05:17.774Z",
+    "date_intervention": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 5,
+  "fields": {
+    "client": 5,
+    "type_travaux": "plomberie",
+    "titre": "Irobine yatotse",
+    "description": "Nshaka munfashe munkorere amazi",
+    "localite": "Rohero, Bujumbura",
+    "adresse": "Avenue muyinga No 11",
+    "urgence": "normale",
+    "statut": "terminee",
+    "technicien": 3,
+    "photo": "demandes/alain.png",
+    "notes_admin": "",
+    "date_creation": "2026-03-10T18:23:42.671Z",
+    "date_modification": "2026-03-16T12:41:15.041Z",
+    "date_intervention": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 6,
+  "fields": {
+    "client": 1,
+    "type_travaux": "plomberie",
+    "titre": "fuite",
+    "description": "Benooire yamenetse",
+    "localite": "Kinanira 4",
+    "adresse": "Avenue Mwezi",
+    "urgence": "critique",
+    "statut": "terminee",
+    "technicien": 3,
+    "photo": "",
+    "notes_admin": "",
+    "date_creation": "2026-03-12T16:36:33.974Z",
+    "date_modification": "2026-03-14T07:39:01.409Z",
+    "date_intervention": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 7,
+  "fields": {
+    "client": 1,
+    "type_travaux": "peinture",
+    "titre": "Muzoze gunsigire inzu yanje",
+    "description": "Muzoze gunsigire inzu yanje",
+    "localite": "Kigobe Nord",
+    "adresse": "Avenue Mwezi",
+    "urgence": "normale",
+    "statut": "terminee",
+    "technicien": 5,
+    "photo": "",
+    "notes_admin": "",
+    "date_creation": "2026-03-13T12:50:27.135Z",
+    "date_modification": "2026-03-16T12:41:02.719Z",
+    "date_intervention": "2026-03-19"
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 8,
+  "fields": {
+    "client": 1,
+    "type_travaux": "construction",
+    "titre": "Kwubaka inzu",
+    "description": "Kwubaka inzu",
+    "localite": "Buja",
+    "adresse": "buja",
+    "urgence": "normale",
+    "statut": "terminee",
+    "technicien": 2,
+    "photo": "",
+    "notes_admin": "",
+    "date_creation": "2026-03-13T17:32:22.944Z",
+    "date_modification": "2026-03-16T12:40:49.993Z",
+    "date_intervention": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 9,
+  "fields": {
+    "client": 1,
+    "type_travaux": "construction",
+    "titre": "Nshaka munyubakire inzu yanje, yarabomotse",
+    "description": "Étage de rangement vertical",
+    "localite": "Rohero, Bujumbura",
+    "adresse": "Avenue muyinga No 11",
+    "urgence": "urgente",
+    "statut": "terminee",
+    "technicien": 2,
+    "photo": "",
+    "notes_admin": "",
+    "date_creation": "2026-03-15T09:54:51.245Z",
+    "date_modification": "2026-03-16T12:40:33.246Z",
+    "date_intervention": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 10,
+  "fields": {
+    "client": 5,
+    "type_travaux": "electricite",
+    "titre": "Inzu yahiye nshaka munfashe kuzimya",
+    "description": "installation",
+    "localite": "Kigobe Nord",
+    "adresse": "Avenue muyinga No 12",
+    "urgence": "normale",
+    "statut": "terminee",
+    "technicien": 6,
+    "photo": "",
+    "notes_admin": "",
+    "date_creation": "2026-03-15T09:58:34.181Z",
+    "date_modification": "2026-03-16T12:40:12.934Z",
+    "date_intervention": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 11,
+  "fields": {
+    "client": 1,
+    "type_travaux": "menuiserie",
+    "titre": "Nshaka munyubakire inzu yanje, yarabomotse",
+    "description": "Étage de rangement vertical",
+    "localite": "Ngagara Q6",
+    "adresse": "Avenue Mwezi",
+    "urgence": "normale",
+    "statut": "assignee",
+    "technicien": 9,
+    "photo": "",
+    "notes_admin": "",
+    "date_creation": "2026-03-15T12:41:22.353Z",
+    "date_modification": "2026-05-22T12:31:40.842Z",
+    "date_intervention": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 12,
+  "fields": {
+    "client": 1,
+    "type_travaux": "surveillance",
+    "titre": "nshaka munshirireko camera de surveillance",
+    "description": "nshaka munshirireko camera de surveillance",
+    "localite": "Rohero, Bujumbura",
+    "adresse": "Avenue muyinga No 11",
+    "urgence": "normale",
+    "statut": "assignee",
+    "technicien": 8,
+    "photo": "demandes/Capture_décran_2025-10-16_141314.png",
+    "notes_admin": "",
+    "date_creation": "2026-03-15T19:43:47.105Z",
+    "date_modification": "2026-05-09T12:21:35.537Z",
+    "date_intervention": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 13,
+  "fields": {
+    "client": 6,
+    "type_travaux": "electricite",
+    "titre": "Inzu yahiye nshaka munfashe kuzimya",
+    "description": "Inzu yahiye nshaka munfashe kuzimya",
+    "localite": "Kinanira 2",
+    "adresse": "Avenue muyinga No 11",
+    "urgence": "normale",
+    "statut": "assignee",
+    "technicien": 11,
+    "photo": "",
+    "notes_admin": "",
+    "date_creation": "2026-03-18T09:07:01.827Z",
+    "date_modification": "2026-05-22T12:28:07.588Z",
+    "date_intervention": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 14,
+  "fields": {
+    "client": 2,
+    "type_travaux": "electricite",
+    "titre": "Installation electrique",
+    "description": "Installation electrique",
+    "localite": "Ngagara Q6",
+    "adresse": "Ngagara Q6",
+    "urgence": "urgente",
+    "statut": "assignee",
+    "technicien": 7,
+    "photo": "demandes/CX5_7op25yb.jpg",
+    "notes_admin": "",
+    "date_creation": "2026-03-23T18:53:49.938Z",
+    "date_modification": "2026-04-22T13:25:32.380Z",
+    "date_intervention": "2026-03-27"
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 15,
+  "fields": {
+    "client": 1,
+    "type_travaux": "construction",
+    "titre": "Nshaka munyubakire inzu yanje, yarabomotse",
+    "description": "Nshaka munyubakire inzu yanje, yarabomotse",
+    "localite": "Rohero, Bujumbura",
+    "adresse": "Avenue Mwezi",
+    "urgence": "normale",
+    "statut": "assignee",
+    "technicien": 2,
+    "photo": "demandes/WhatsApp_Image_2026-03-19_at_7.00.54_PM.jpeg",
+    "notes_admin": "",
+    "date_creation": "2026-03-31T09:29:04.656Z",
+    "date_modification": "2026-04-22T13:16:56.426Z",
+    "date_intervention": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 16,
+  "fields": {
+    "client": 5,
+    "type_travaux": "electricite",
+    "titre": "Installation electrique",
+    "description": "je dirai une installation electrique",
+    "localite": "Rohero, Bujumbura",
+    "adresse": "Avenue muyinga No 11",
+    "urgence": "urgente",
+    "statut": "assignee",
+    "technicien": 11,
+    "photo": "",
+    "notes_admin": "",
+    "date_creation": "2026-04-02T14:43:53.808Z",
+    "date_modification": "2026-04-22T12:48:43.554Z",
+    "date_intervention": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 17,
+  "fields": {
+    "client": 8,
+    "type_travaux": "electricite",
+    "titre": "Reaparation electrique",
+    "description": "Reaparation electrique",
+    "localite": "Carama",
+    "adresse": "Carama, Ntahangwa",
+    "urgence": "normale",
+    "statut": "assignee",
+    "technicien": 1,
+    "photo": "",
+    "notes_admin": "",
+    "date_creation": "2026-04-17T09:35:29.590Z",
+    "date_modification": "2026-04-22T10:30:01.439Z",
+    "date_intervention": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 18,
+  "fields": {
+    "client": 10,
+    "type_travaux": "construction",
+    "titre": "Nshaka munyubakire inzu yanje, yarabomotse",
+    "description": "Nshaka munyubakire inzu yanje, yarabomotse",
+    "localite": "Ngagara Q6",
+    "adresse": "Ngagara Q6",
+    "urgence": "normale",
+    "statut": "assignee",
+    "technicien": 2,
+    "photo": "demandes/v8.jpg",
+    "notes_admin": "",
+    "date_creation": "2026-04-17T14:32:37.880Z",
+    "date_modification": "2026-04-22T09:01:51.758Z",
+    "date_intervention": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 19,
+  "fields": {
+    "client": 13,
+    "type_travaux": "electricite",
+    "titre": "Installation electrique",
+    "description": "Installation electrique",
+    "localite": "Kinanira 4",
+    "adresse": "Kinanira 4",
+    "urgence": "normale",
+    "statut": "assignee",
+    "technicien": 11,
+    "photo": "demandes/v8_TKNk1Oi.jpg",
+    "notes_admin": "",
+    "date_creation": "2026-04-20T09:38:30.375Z",
+    "date_modification": "2026-04-22T09:09:33.935Z",
+    "date_intervention": null
+  }
+},
+{
+  "model": "demandes.demande",
+  "pk": 20,
+  "fields": {
+    "client": 2,
+    "type_travaux": "electricite",
+    "titre": "panne",
+    "description": "panne",
+    "localite": "Rohero, Bujumbura",
+    "adresse": "Asiatique no 5, avenue rukundo",
+    "urgence": "urgence",
+    "statut": "assignee",
+    "technicien": 11,
+    "photo": "demandes/20260408_231050.jpg",
+    "notes_admin": "",
+    "date_creation": "2026-05-23T13:32:23.010Z",
+    "date_modification": "2026-05-23T13:34:54.863Z",
+    "date_intervention": "2026-05-25"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 1,
+  "fields": {
+    "utilisateur": 2,
+    "demande": 1,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour Donella, Leon Kabura (Electricien) a ete assigne. Tel: +257 66 033 033",
+    "lue": true,
+    "date": "2026-03-05T18:36:46.106Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 2,
+  "fields": {
+    "utilisateur": 2,
+    "demande": 2,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour Donella, Victor Cishahayo (Ingenieur en construction) a ete assigne. Tel: +257 66 033 033",
+    "lue": true,
+    "date": "2026-03-06T11:18:54.591Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 3,
+  "fields": {
+    "utilisateur": 2,
+    "demande": 1,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Inzu yahiye nshaka munfashe kuzimya\" est maintenant : En attente.",
+    "lue": true,
+    "date": "2026-03-06T12:58:26.825Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 4,
+  "fields": {
+    "utilisateur": 2,
+    "demande": 1,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour Donella, Leon Kabura (Electricien) a ete assigne. Tel: +257 66 033 033",
+    "lue": true,
+    "date": "2026-03-06T12:58:35.623Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 5,
+  "fields": {
+    "utilisateur": 2,
+    "demande": 1,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Inzu yahiye nshaka munfashe kuzimya\" est maintenant : Terminee.",
+    "lue": true,
+    "date": "2026-03-06T12:58:42.759Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 6,
+  "fields": {
+    "utilisateur": 2,
+    "demande": 2,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Nshaka munyubakire inzu yanje, yarabomotse\" est maintenant : Terminee.",
+    "lue": true,
+    "date": "2026-03-06T12:59:41.315Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 7,
+  "fields": {
+    "utilisateur": 3,
+    "demande": 3,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour Claudine, Victor Cishahayo (Ingenieur en construction) a ete assigne. Tel: +257 66 033 033",
+    "lue": true,
+    "date": "2026-03-07T06:59:45.039Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 8,
+  "fields": {
+    "utilisateur": 3,
+    "demande": 3,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Nshaka munyubakire inzu yanje, yarabomotse\" est maintenant : En attente.",
+    "lue": true,
+    "date": "2026-03-07T07:00:07.850Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 9,
+  "fields": {
+    "utilisateur": 3,
+    "demande": 3,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour Claudine, Victor Cishahayo (Ingenieur en construction) a ete assigne. Tel: +257 66 033 033",
+    "lue": true,
+    "date": "2026-03-07T07:00:32.551Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 10,
+  "fields": {
+    "utilisateur": 4,
+    "demande": 4,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour Kamina, joseph Harerimana (Peintre) a ete assigne. Tel: +257 66 033 033",
+    "lue": true,
+    "date": "2026-03-08T11:52:43.324Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 11,
+  "fields": {
+    "utilisateur": 4,
+    "demande": 4,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Muzoze gunsigire inzu yanje\" est maintenant : Terminee.",
+    "lue": true,
+    "date": "2026-03-08T12:01:59.434Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 12,
+  "fields": {
+    "utilisateur": 3,
+    "demande": 3,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Nshaka munyubakire inzu yanje, yarabomotse\" est maintenant : Terminee.",
+    "lue": true,
+    "date": "2026-03-08T12:06:14.375Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 13,
+  "fields": {
+    "utilisateur": 3,
+    "demande": 3,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Nshaka munyubakire inzu yanje, yarabomotse\" est maintenant : Terminee.",
+    "lue": true,
+    "date": "2026-03-08T12:07:04.246Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 14,
+  "fields": {
+    "utilisateur": 4,
+    "demande": 4,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Muzoze gunsigire inzu yanje\" est maintenant : Terminee.",
+    "lue": false,
+    "date": "2026-03-10T07:05:18.029Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 15,
+  "fields": {
+    "utilisateur": 5,
+    "demande": 5,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour Claude, eloi Karorero (Plombier) a ete assigne. Tel: +257 66 033 033",
+    "lue": true,
+    "date": "2026-03-10T18:28:23.317Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 16,
+  "fields": {
+    "utilisateur": 5,
+    "demande": 5,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Irobine yatotse\" est maintenant : En attente.",
+    "lue": true,
+    "date": "2026-03-10T18:28:50.693Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 17,
+  "fields": {
+    "utilisateur": 5,
+    "demande": 5,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour Claude, eloi Karorero (Plombier) a ete assigne. Tel: +257 66 033 033",
+    "lue": true,
+    "date": "2026-03-10T18:29:09.843Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 18,
+  "fields": {
+    "utilisateur": 2,
+    "demande": null,
+    "titre": "Action requise : Paiement",
+    "message": "Votre paiement pour la demande #2 est en attente. Veuillez procéder au règlement via À la Livraison.",
+    "lue": true,
+    "date": "2026-03-11T18:15:15.774Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 19,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 2,
+    "titre": "Bordereau reçu — à vérifier",
+    "message": "Donella Kenguruka a soumis un bordereau pour le paiement #1 (Demande #2). N° bordereau : 2121212121.",
+    "lue": true,
+    "date": "2026-03-11T18:31:46.286Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 20,
+  "fields": {
+    "utilisateur": 1,
+    "demande": null,
+    "titre": "Action requise : Paiement",
+    "message": "Votre paiement pour la demande #None est en attente. Mode choisi : Mobile Money.",
+    "lue": true,
+    "date": "2026-03-12T08:14:58.952Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 21,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 1,
+    "titre": "Bordereau reçu — à vérifier",
+    "message": "Donella Kenguruka a soumis un bordereau pour le paiement #2 (Demande #1). N° bordereau : BRD-20260312-002.",
+    "lue": true,
+    "date": "2026-03-12T08:22:21.472Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 22,
+  "fields": {
+    "utilisateur": 2,
+    "demande": null,
+    "titre": "Action requise : Paiement",
+    "message": "Votre paiement pour la demande #2 est en attente. Veuillez procéder au règlement via À la Livraison.",
+    "lue": true,
+    "date": "2026-03-12T11:07:37.548Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 23,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 6,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour , eloi Karorero (Plombier) a ete assigne. Tel: +257 66 033 033",
+    "lue": true,
+    "date": "2026-03-12T16:37:31.159Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 24,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 6,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"fuite\" est maintenant : En cours.",
+    "lue": true,
+    "date": "2026-03-12T16:40:35.006Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 25,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 7,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour , joseph Harerimana (Peintre) a ete assigne. Tel: +257 66 033 033",
+    "lue": true,
+    "date": "2026-03-13T13:02:46.603Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 26,
+  "fields": {
+    "utilisateur": 1,
+    "demande": null,
+    "titre": "Action requise : Paiement",
+    "message": "Votre paiement pour la demande #7 est en attente. Mode choisi : Mobile Money. ",
+    "lue": true,
+    "date": "2026-03-13T13:05:27.331Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 27,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 8,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour , Victor Cishahayo (Ingenieur en construction) a ete assigne. Tel: +257 66 033 033",
+    "lue": true,
+    "date": "2026-03-13T17:33:41.216Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 28,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 8,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Kwubaka inzu\" est maintenant : Assignee.",
+    "lue": true,
+    "date": "2026-03-13T17:33:44.872Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 29,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 6,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"fuite\" est maintenant : Terminee.",
+    "lue": true,
+    "date": "2026-03-14T07:39:01.510Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 30,
+  "fields": {
+    "utilisateur": 1,
+    "demande": null,
+    "titre": "Action requise : Paiement",
+    "message": "Votre paiement pour la demande #8 est en attente. Mode choisi : Mobile Money. ",
+    "lue": true,
+    "date": "2026-03-14T18:54:32.383Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 31,
+  "fields": {
+    "utilisateur": 5,
+    "demande": 10,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour Claude, John Kabura (Electricien) a ete assigne. Tel: +257 66 033 033",
+    "lue": true,
+    "date": "2026-03-15T10:00:05.015Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 32,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 9,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour , Victor Cishahayo (Ingenieur en construction) a ete assigne. Tel: +257 66 033 033",
+    "lue": true,
+    "date": "2026-03-15T10:00:39.078Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 33,
+  "fields": {
+    "utilisateur": 1,
+    "demande": null,
+    "titre": "Action requise : Paiement",
+    "message": "Bonjour tu dois proceder le paiement au numero suivant 66033033",
+    "lue": true,
+    "date": "2026-03-15T11:07:44.407Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 34,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 9,
+    "titre": "Bordereau reçu — à vérifier",
+    "message": "Support a soumis un bordereau pour le paiement #32 (Demande #9). N° bordereau : 66033033.",
+    "lue": true,
+    "date": "2026-03-15T11:09:31.731Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 35,
+  "fields": {
+    "utilisateur": 1,
+    "demande": null,
+    "titre": "Action requise : Paiement",
+    "message": "VOUS AVEZ PAYE, MERCI DE NOUS FAIRE CONFIANCE",
+    "lue": true,
+    "date": "2026-03-15T12:44:43.709Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 36,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 12,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour , Gerard Gahungu (Camera de surveillance) a ete assigne. Tel: +257 66 033 033",
+    "lue": true,
+    "date": "2026-03-15T19:48:05.259Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 37,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 11,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Nshaka munyubakire inzu yanje, yarabomotse\" est maintenant : Assignee.",
+    "lue": true,
+    "date": "2026-03-16T12:38:26.575Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 38,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 11,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Nshaka munyubakire inzu yanje, yarabomotse\" est maintenant : Terminee.",
+    "lue": true,
+    "date": "2026-03-16T12:39:57.188Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 39,
+  "fields": {
+    "utilisateur": 5,
+    "demande": 10,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Inzu yahiye nshaka munfashe kuzimya\" est maintenant : Terminee.",
+    "lue": true,
+    "date": "2026-03-16T12:40:13.029Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 40,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 9,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Nshaka munyubakire inzu yanje, yarabomotse\" est maintenant : Terminee.",
+    "lue": true,
+    "date": "2026-03-16T12:40:33.346Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 41,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 8,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Kwubaka inzu\" est maintenant : Terminee.",
+    "lue": true,
+    "date": "2026-03-16T12:40:50.058Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 42,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 7,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Muzoze gunsigire inzu yanje\" est maintenant : Terminee.",
+    "lue": true,
+    "date": "2026-03-16T12:41:02.855Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 43,
+  "fields": {
+    "utilisateur": 5,
+    "demande": 5,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Irobine yatotse\" est maintenant : Terminee.",
+    "lue": true,
+    "date": "2026-03-16T12:41:15.208Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 44,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 11,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour , Gerard Cishahayo (Menuisier) a ete assigne. Tel: +257 66 033 033",
+    "lue": true,
+    "date": "2026-03-17T12:08:54.867Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 45,
+  "fields": {
+    "utilisateur": 6,
+    "demande": 13,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour Louis, John Kabura (Electricien) a ete assigne. Tel: +257 66 033 033",
+    "lue": false,
+    "date": "2026-03-18T09:08:39.571Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 46,
+  "fields": {
+    "utilisateur": 2,
+    "demande": 14,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour Donella, John Kabura (Electricien) a ete assigne. Tel: +257 66 033 033",
+    "lue": true,
+    "date": "2026-03-23T19:12:17.893Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 47,
+  "fields": {
+    "utilisateur": 2,
+    "demande": 14,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Installation electrique\" est maintenant : Assignee.",
+    "lue": true,
+    "date": "2026-03-24T09:53:53.682Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 48,
+  "fields": {
+    "utilisateur": 2,
+    "demande": 14,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Installation electrique\" est maintenant : En attente.",
+    "lue": true,
+    "date": "2026-03-31T09:25:53.424Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 49,
+  "fields": {
+    "utilisateur": 6,
+    "demande": 13,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Inzu yahiye nshaka munfashe kuzimya\" est maintenant : En attente.",
+    "lue": false,
+    "date": "2026-03-31T09:26:11.370Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 50,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 12,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"nshaka munshirireko camera de surveillance\" est maintenant : En attente.",
+    "lue": true,
+    "date": "2026-03-31T09:26:54.005Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 51,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 12,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"nshaka munshirireko camera de surveillance\" est maintenant : En attente.",
+    "lue": true,
+    "date": "2026-03-31T09:27:02.590Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 52,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 11,
+    "titre": "Statut mis a jour",
+    "message": "Votre demande \"Nshaka munyubakire inzu yanje, yarabomotse\" est maintenant : En attente.",
+    "lue": true,
+    "date": "2026-03-31T09:27:14.032Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 53,
+  "fields": {
+    "utilisateur": 13,
+    "demande": 19,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour Diella, un technicien a ete assigne a votre demande \"Installation electrique\". Leon Cishahayo (Electricien) interviendra chez vous. Tel: 223456578",
+    "lue": false,
+    "date": "2026-04-22T09:09:33.994Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 54,
+  "fields": {
+    "utilisateur": 8,
+    "demande": 17,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour , un technicien a ete assigne a votre demande \"Reaparation electrique\". Leon Kabura (Electricien) interviendra chez vous. Tel: +25762535100",
+    "lue": false,
+    "date": "2026-04-22T10:30:01.498Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 55,
+  "fields": {
+    "utilisateur": 5,
+    "demande": 16,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour Claude, un technicien a ete assigne a votre demande \"Installation electrique\". Leon Cishahayo (Electricien) interviendra chez vous. Tel: 223456578",
+    "lue": false,
+    "date": "2026-04-22T12:48:43.768Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 56,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 15,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour , un technicien a ete assigne a votre demande \"Nshaka munyubakire inzu yanje, yarabomotse\". Victor Cishahayo (Ingenieur en construction) interviendra chez vous. Tel: 223456578",
+    "lue": true,
+    "date": "2026-04-22T13:16:56.478Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 57,
+  "fields": {
+    "utilisateur": 2,
+    "demande": 14,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour Donella, un technicien a ete assigne a votre demande \"Installation electrique\". Elvis Kana (Electricien) interviendra chez vous. Tel: +25762535103",
+    "lue": true,
+    "date": "2026-04-22T13:25:32.440Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 58,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 12,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour , un technicien a ete assigne a votre demande \"nshaka munshirireko camera de surveillance\". Gerard Gahungu (surveillance) interviendra chez vous. Tel: 2576786969868",
+    "lue": true,
+    "date": "2026-05-09T12:21:35.572Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 59,
+  "fields": {
+    "utilisateur": 6,
+    "demande": 13,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour Louis, un technicien a ete assigne a votre demande \"Inzu yahiye nshaka munfashe kuzimya\". Leon Cishahayo (Electricien) interviendra chez vous. Tel: 223456578",
+    "lue": false,
+    "date": "2026-05-22T12:28:07.629Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 60,
+  "fields": {
+    "utilisateur": 1,
+    "demande": 11,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour , un technicien a ete assigne a votre demande \"Nshaka munyubakire inzu yanje, yarabomotse\". Gerard Cishahayo (Menuisier) interviendra chez vous. Tel: 2576786969868",
+    "lue": true,
+    "date": "2026-05-22T12:31:40.930Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 61,
+  "fields": {
+    "utilisateur": 2,
+    "demande": 20,
+    "titre": "Demande envoyee avec succes",
+    "message": "Votre demande #20 \"panne\" a ete recue. Un technicien vous sera assigne bientot.",
+    "lue": true,
+    "date": "2026-05-23T13:32:23.063Z"
+  }
+},
+{
+  "model": "demandes.notification",
+  "pk": 62,
+  "fields": {
+    "utilisateur": 2,
+    "demande": 20,
+    "titre": "Technicien assigne a votre demande",
+    "message": "Bonjour Donella, un technicien a ete assigne a votre demande \"panne\". Leon Cishahayo (Electricien) interviendra chez vous. Tel: 223456578",
+    "lue": true,
+    "date": "2026-05-23T13:34:54.910Z"
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 1,
+  "fields": {
+    "expediteur": 8,
+    "contenu": "hello to y  all",
+    "date_envoi": "2026-04-17T08:55:59.332Z",
+    "lu_par_admin": false,
+    "is_admin": true
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 2,
+  "fields": {
+    "expediteur": 10,
+    "contenu": "✅❤️",
+    "date_envoi": "2026-04-17T14:08:39.130Z",
+    "lu_par_admin": false,
+    "is_admin": false
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 3,
+  "fields": {
+    "expediteur": 10,
+    "contenu": "J,ai besoin de votre aide",
+    "date_envoi": "2026-04-17T15:33:54.941Z",
+    "lu_par_admin": false,
+    "is_admin": false
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 4,
+  "fields": {
+    "expediteur": 8,
+    "contenu": "nous vous repondrons au plutot possible",
+    "date_envoi": "2026-04-17T15:54:46.779Z",
+    "lu_par_admin": false,
+    "is_admin": true
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 5,
+  "fields": {
+    "expediteur": 8,
+    "contenu": "😎",
+    "date_envoi": "2026-04-18T09:11:51.412Z",
+    "lu_par_admin": false,
+    "is_admin": true
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 6,
+  "fields": {
+    "expediteur": 8,
+    "contenu": "ok",
+    "date_envoi": "2026-04-18T09:12:16.086Z",
+    "lu_par_admin": false,
+    "is_admin": true
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 7,
+  "fields": {
+    "expediteur": 8,
+    "contenu": "bra bra bra",
+    "date_envoi": "2026-04-18T09:12:42.130Z",
+    "lu_par_admin": false,
+    "is_admin": true
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 8,
+  "fields": {
+    "expediteur": 13,
+    "contenu": "Bonjour",
+    "date_envoi": "2026-04-20T09:29:09.408Z",
+    "lu_par_admin": false,
+    "is_admin": false
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 9,
+  "fields": {
+    "expediteur": 14,
+    "contenu": "bonjour",
+    "date_envoi": "2026-04-20T10:11:00.780Z",
+    "lu_par_admin": false,
+    "is_admin": true
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 10,
+  "fields": {
+    "expediteur": 14,
+    "contenu": "😊",
+    "date_envoi": "2026-04-20T10:11:11.627Z",
+    "lu_par_admin": false,
+    "is_admin": true
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 11,
+  "fields": {
+    "expediteur": 14,
+    "contenu": "Bon apres a tout le monde",
+    "date_envoi": "2026-04-20T10:22:34.652Z",
+    "lu_par_admin": false,
+    "is_admin": true
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 12,
+  "fields": {
+    "expediteur": 14,
+    "contenu": "vous allez bien",
+    "date_envoi": "2026-04-20T10:22:49.938Z",
+    "lu_par_admin": false,
+    "is_admin": true
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 13,
+  "fields": {
+    "expediteur": 13,
+    "contenu": "hi",
+    "date_envoi": "2026-04-21T09:07:06.596Z",
+    "lu_par_admin": false,
+    "is_admin": false
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 14,
+  "fields": {
+    "expediteur": 13,
+    "contenu": "« Hi » est une salutation informelle courante en anglais, utilisée pour dire bonjour, équivalente à « salut » ou « coucou » en français. Elle s'emploie en début de conversation, à l'écrit comme à l'oral (ex: « Hi there », « Just called to say hi »). Des synonymes incluent hello, hey, hiya ou howdy.",
+    "date_envoi": "2026-04-21T09:07:35.492Z",
+    "lu_par_admin": false,
+    "is_admin": false
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 15,
+  "fields": {
+    "expediteur": 13,
+    "contenu": "😀",
+    "date_envoi": "2026-04-21T09:08:05.029Z",
+    "lu_par_admin": false,
+    "is_admin": false
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 16,
+  "fields": {
+    "expediteur": 2,
+    "contenu": "Hello",
+    "date_envoi": "2026-04-22T09:11:54.280Z",
+    "lu_par_admin": false,
+    "is_admin": false
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 17,
+  "fields": {
+    "expediteur": 2,
+    "contenu": "Bonjoor j,ai un probleme, pouvez vous m'aider",
+    "date_envoi": "2026-04-22T09:12:38.236Z",
+    "lu_par_admin": false,
+    "is_admin": false
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 18,
+  "fields": {
+    "expediteur": 1,
+    "contenu": "Bonjour il ya pas de souci",
+    "date_envoi": "2026-04-22T09:25:45.412Z",
+    "lu_par_admin": false,
+    "is_admin": true
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 19,
+  "fields": {
+    "expediteur": 1,
+    "contenu": "on va t'aider",
+    "date_envoi": "2026-04-22T09:25:56.212Z",
+    "lu_par_admin": false,
+    "is_admin": true
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 20,
+  "fields": {
+    "expediteur": 1,
+    "contenu": "parle de quel prbleme s'agit il",
+    "date_envoi": "2026-04-22T09:26:10.564Z",
+    "lu_par_admin": false,
+    "is_admin": true
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 21,
+  "fields": {
+    "expediteur": 10,
+    "contenu": "Bonjour",
+    "date_envoi": "2026-04-29T09:28:04.513Z",
+    "lu_par_admin": false,
+    "is_admin": false
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 22,
+  "fields": {
+    "expediteur": 10,
+    "contenu": "Moi il ya quelque chose qui ça ne va pas",
+    "date_envoi": "2026-04-29T09:28:57.937Z",
+    "lu_par_admin": false,
+    "is_admin": false
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 23,
+  "fields": {
+    "expediteur": 10,
+    "contenu": "j'ai besoin juste que le technicien que vous allez m'assigner qu,il vienne avec ses propres outils",
+    "date_envoi": "2026-04-29T09:31:44.784Z",
+    "lu_par_admin": false,
+    "is_admin": false
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 24,
+  "fields": {
+    "expediteur": 10,
+    "contenu": "🙏",
+    "date_envoi": "2026-04-29T09:33:02.006Z",
+    "lu_par_admin": false,
+    "is_admin": false
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 25,
+  "fields": {
+    "expediteur": 10,
+    "contenu": "😀😂",
+    "date_envoi": "2026-04-29T09:33:24.529Z",
+    "lu_par_admin": false,
+    "is_admin": false
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 26,
+  "fields": {
+    "expediteur": 2,
+    "contenu": "dcruydurjhcguyrfucuyihujkuio",
+    "date_envoi": "2026-05-23T13:40:16.099Z",
+    "lu_par_admin": false,
+    "is_admin": false
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 27,
+  "fields": {
+    "expediteur": 1,
+    "contenu": "jkcksjs",
+    "date_envoi": "2026-05-23T14:02:41.712Z",
+    "lu_par_admin": false,
+    "is_admin": true
+  }
+},
+{
+  "model": "demandes.messagechat",
+  "pk": 28,
+  "fields": {
+    "expediteur": 1,
+    "contenu": ";kzxsioxpapakjzk",
+    "date_envoi": "2026-05-23T14:02:45.107Z",
+    "lu_par_admin": false,
+    "is_admin": true
+  }
+},
+{
+  "model": "techniciens.technicien",
+  "pk": 1,
+  "fields": {
+    "nom": "Kabura",
+    "prenom": "Leon",
+    "specialite": "electricien",
+    "telephone": "+25762535100",
+    "email": "leon@gmail.com",
+    "localite": "Kinanira 4",
+    "disponibilite": "disponible",
+    "photo": "techniciens/bienvenu.png",
+    "experience": 2,
+    "actif": true,
+    "date_ajout": "2026-03-05T14:14:49.271Z"
+  }
+},
+{
+  "model": "techniciens.technicien",
+  "pk": 2,
+  "fields": {
+    "nom": "Cishahayo",
+    "prenom": "Victor",
+    "specialite": "ingenieur",
+    "telephone": "223456578",
+    "email": "victor@gmail.com",
+    "localite": "Kinanira 2",
+    "disponibilite": "disponible",
+    "photo": "",
+    "experience": 3,
+    "actif": true,
+    "date_ajout": "2026-03-06T11:18:34.189Z"
+  }
+},
+{
+  "model": "techniciens.technicien",
+  "pk": 3,
+  "fields": {
+    "nom": "Karorero",
+    "prenom": "eloi",
+    "specialite": "plombier",
+    "telephone": "223456577",
+    "email": "eloi@gmail.com",
+    "localite": "Kinanira 2",
+    "disponibilite": "disponible",
+    "photo": "",
+    "experience": 4,
+    "actif": true,
+    "date_ajout": "2026-03-06T12:55:22.140Z"
+  }
+},
+{
+  "model": "techniciens.technicien",
+  "pk": 4,
+  "fields": {
+    "nom": "Gahungu",
+    "prenom": "John",
+    "specialite": "soudeur",
+    "telephone": "67880095",
+    "email": "jean@gmail.com",
+    "localite": "Ngagara Q7",
+    "disponibilite": "disponible",
+    "photo": "",
+    "experience": 8,
+    "actif": true,
+    "date_ajout": "2026-03-06T12:56:12.087Z"
+  }
+},
+{
+  "model": "techniciens.technicien",
+  "pk": 5,
+  "fields": {
+    "nom": "Harerimana",
+    "prenom": "joseph",
+    "specialite": "peintre",
+    "telephone": "223456578",
+    "email": "joseph@gmail.com",
+    "localite": "Kigobe Nord",
+    "disponibilite": "disponible",
+    "photo": "",
+    "experience": 8,
+    "actif": true,
+    "date_ajout": "2026-03-06T12:57:10.944Z"
+  }
+},
+{
+  "model": "techniciens.technicien",
+  "pk": 6,
+  "fields": {
+    "nom": "Kabura",
+    "prenom": "John",
+    "specialite": "electricien",
+    "telephone": "67880095",
+    "email": "jean@gmail.com",
+    "localite": "Ngagara Q6",
+    "disponibilite": "disponible",
+    "photo": "",
+    "experience": 2,
+    "actif": true,
+    "date_ajout": "2026-03-08T12:14:15.820Z"
+  }
+},
+{
+  "model": "techniciens.technicien",
+  "pk": 7,
+  "fields": {
+    "nom": "Kana",
+    "prenom": "Elvis",
+    "specialite": "electricien",
+    "telephone": "+25762535103",
+    "email": "elivis@gmail.com",
+    "localite": "Rohero, Bujumbura",
+    "disponibilite": "disponible",
+    "photo": "",
+    "experience": 1,
+    "actif": true,
+    "date_ajout": "2026-03-08T12:19:21.124Z"
+  }
+},
+{
+  "model": "techniciens.technicien",
+  "pk": 8,
+  "fields": {
+    "nom": "Gahungu",
+    "prenom": "Gerard",
+    "specialite": "surveillance",
+    "telephone": "2576786969868",
+    "email": "gahungu@gmail.com",
+    "localite": "Rohero, Bujumbura",
+    "disponibilite": "disponible",
+    "photo": "",
+    "experience": 4,
+    "actif": true,
+    "date_ajout": "2026-03-15T19:47:17.018Z"
+  }
+},
+{
+  "model": "techniciens.technicien",
+  "pk": 9,
+  "fields": {
+    "nom": "Cishahayo",
+    "prenom": "Gerard",
+    "specialite": "menuisier",
+    "telephone": "2576786969868",
+    "email": "gerard@gmail.com",
+    "localite": "Kinanira 2",
+    "disponibilite": "disponible",
+    "photo": "",
+    "experience": 2,
+    "actif": true,
+    "date_ajout": "2026-03-16T12:39:32.188Z"
+  }
+},
+{
+  "model": "techniciens.technicien",
+  "pk": 10,
+  "fields": {
+    "nom": "Kabura",
+    "prenom": "Deo",
+    "specialite": "plombier",
+    "telephone": "2576786969868",
+    "email": "deo@gmail.com",
+    "localite": "Rohero, Bujumbura",
+    "disponibilite": "disponible",
+    "photo": "techniciens/CIZA_MUSHAGALUSA_PROSPER.JPG",
+    "experience": 2,
+    "actif": true,
+    "date_ajout": "2026-03-18T08:13:57.250Z"
+  }
+},
+{
+  "model": "techniciens.technicien",
+  "pk": 11,
+  "fields": {
+    "nom": "Cishahayo",
+    "prenom": "Leon",
+    "specialite": "electricien",
+    "telephone": "223456578",
+    "email": "elivis@gmail.com",
+    "localite": "Rohero, Bujumbura",
+    "disponibilite": "disponible",
+    "photo": "",
+    "experience": 2,
+    "actif": true,
+    "date_ajout": "2026-04-20T10:19:24.949Z"
+  }
+}
+]
