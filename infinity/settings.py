@@ -54,7 +54,8 @@ WSGI_APPLICATION = 'infinity.wsgi.application'
 DATABASE_URL = os.environ.get('DATABASE_URL')
 if DATABASE_URL:
     DATABASES = {'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600)}
-    DATABASES['default']['OPTIONS'] = {'options': '-c search_path=infinityhome'}
+    DB_SCHEMA = os.environ.get('DB_SCHEMA', 'infinityhome')
+    DATABASES['default']['OPTIONS'] = {'options': f'-c search_path={DB_SCHEMA}'}
 else:
     DATABASES = {
         'default': {

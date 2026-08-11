@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -207,6 +208,13 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
   .ft-grid{grid-template-columns:1fr 1fr}.ft-bot{flex-direction:column;text-align:center}
 }
 @media(max-width:480px){.ft-grid{grid-template-columns:1fr}}
+
+/* ─── PAGE HERO (réutilisable sur toutes les pages visiteur) ─── */
+.page-hero{position:relative;background:url('{% static "images/24-hour-telephone-service-all-day-consultation-support-services-photo.jpg" %}') center/cover no-repeat;border-radius:24px;padding:4rem 1.5rem;margin:2rem auto 3rem;max-width:1100px;overflow:hidden;text-align:center}
+.page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55));z-index:0}
+.page-hero>*{position:relative;z-index:1}
+.page-hero h1{color:#fff;font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800}
+.page-hero p{color:rgba(255,255,255,.85);margin-top:.7rem;font-size:1.05rem}
 </style>
 {% block extra_css %}{% endblock %}
 </head>
@@ -280,7 +288,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
 </div>
 </div>
 <a class="wa-fab" href="https://wa.me/25777869915?text=Bonjour%20Infinity%20Home" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<div class="wa-tip">💬 +257 77 869 915</div>
+<div class="wa-tip">💬  +25769168247</div>
 
 {% else %}
 <!-- ══ LAYOUT VISITEUR ══ -->
@@ -338,7 +346,10 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
   {% endfor %}
 </div>
 {% endif %}
-<div class="cw">{% block visitor_content %}{% endblock %}</div>
+<div class="cw">
+{% block page_hero %}{% endblock %}
+{% block visitor_content %}{% endblock %}
+</div>
 <div class="img-strip"><div class="ist">
   <div class="si"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=320&q=75" alt=""></div>
   <div class="si"><img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=320&q=75" alt=""></div>
